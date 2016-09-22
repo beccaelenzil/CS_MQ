@@ -40,4 +40,22 @@ def flipside(s):
     halflength = len(s)/2
     if len(s)%2 == 0:
         return s[halflength:] + s[0:halflength]
+    elif len(s)%2 == 1:
+        return s[(halflength +1):] + s[0:(halflength +1)]
 print flipside('belltoll')
+
+def convertFromSeconds(s):
+    """
+    takes in seconds and gives out four new sets of data [days, hours, minutes, seconds]
+    """
+    d = s/(24*60*60)
+    s = s%(24*60*60)
+    h = s/(60*60)
+    s = s%(60*60)
+    m = s/60
+    s = s%60
+    return [d,h,m,s]
+print '123010 seconds is ', convertFromSeconds(123010)
+
+
+
