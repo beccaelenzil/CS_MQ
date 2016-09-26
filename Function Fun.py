@@ -57,5 +57,13 @@ def convertFromSeconds(s):
     return [d,h,m,s]
 print '123010 seconds is ', convertFromSeconds(123010)
 
-
-
+def front3(s):
+    """
+    Given a string, we'll say that the
+    front is the first 3 chars of the string.
+    If the string length is less than 3,
+    the front is whatever is there. Return a new
+    string which is 3 copies of the front.
+    """
+    return s[0:3] + s[0:3] + s[0:3]
+print front3('funny')
