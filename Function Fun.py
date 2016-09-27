@@ -1,3 +1,5 @@
+#I have made the changes listed in my Problem Set 2 feedback
+
 import math
 
 def tpl(x):
@@ -38,11 +40,10 @@ def flipside(s):
     flips the input s by putting the first half second, and the second half first
     """
     halflength = len(s)/2
-    if len(s)%2 == 0:
-        return s[halflength:] + s[0:halflength]
-    elif len(s)%2 == 1:
-        return s[(halflength +1):] + s[0:(halflength +1)]
+    len(s)%2 == 0
+    return s[halflength:] + s[0:halflength]
 print flipside('belltoll')
+print flipside('carpets')
 
 def convertFromSeconds(s):
     """

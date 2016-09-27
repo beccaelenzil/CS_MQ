@@ -41,10 +41,10 @@ print answer5
 answer6 = c[0:4] + m[1:3] + h[-2]
 print answer6
 
-answer7 = h[1:] + m[:]
+answer7 = h[1:] + m[1:]
 print answer7
 
-answer8 = h[:3] + m[2] + c[-1] + h[:3] + h[:3]
+answer8 = h[:3] + m[2] + c[-1] + h[:3] + h[:3] + h[:3]
 print answer8
 
 answer9 = c[3:6] + c[1] + m[0] + h[-1] + c[-3:-1] + c[1]
