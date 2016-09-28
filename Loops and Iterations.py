@@ -33,27 +33,16 @@ print "summedOdds( range(3,10) ): should be 24 == ", summedOdds( range(3,10) )
 
 
 def mult(n,m): #KEEP WORKING ON THIS ONE
+    new = 0
     if n<0:
         begin = n
-        for x in range(1,m):
-            n = n + begin
-        return n
-    elif m<0:
-        begin = m
-        for x in range(1,n):
-            m = m + begin
-        return m
-    elif n>0 and m>0:
-        begin = n
-        for x in range(1,m):
-            n = n + begin
-        return n
-    elif n<0 and m<0:
-        begin = abs(n)
-        #HOW DO I GET THIS PART????????******************
-        for x in (1,abs(m)):
-            n = n + begin
-        return n
+        for x in range(n,0):
+            new = new - m
+        return new
+    elif n>0:
+        for x in range(0,n):
+            new = new + m
+        return new
     elif n == 0 or m == 0:
         return 0
 # tests!
@@ -64,3 +53,44 @@ print "mult(-6,-7)  42 ==", mult(-6,-7)
 print "mult(6,0)     0 ==", mult(6,0)
 print "mult(0,7)     0 ==", mult(0,7)
 print "mult(0,0)     0 ==", mult(0,0)
+
+
+def dot( L,K ):
+    result = 0.0
+    if len(L) != len(K):
+        return 0.0
+    else:
+        for x in range (0,len(L)):
+            result = result + L[x]*K[x]
+        return result
+print "dot( [5,3], [6,4] )     42.0 ==", dot( [5,3], [6,4] )
+print "dot( [1,2,3,4], [10,100,1000,10000] )  43210.0 ==", dot( [1,2,3,4], [10,100,1000,10000] )
+print "dot( [5,3], [6] )        0.0 ==", dot( [5,3], [6] )
+print "dot( [], [6] )           0.0 ==", dot( [], [6] )
+print "dot( [], [] )            0.0 ==", dot( [], [] )
+
+
+def count_evens(L):
+    evencount = 0
+    for x in (L):
+        if x % 2 == 1:
+            evencount = evencount + 0
+        else:
+            evencount = evencount + 1
+    return evencount
+print "count_evens([2, 1, 2, 3, 4], 3 == ", count_evens([2, 1, 2, 3, 4])
+print "count_evens([2, 2, 0]), 3 == ", count_evens([2, 2, 0])
+print "count_evens([1, 3, 5]), 0 == ", count_evens([1, 3, 5])
+
+
+def count9(L):
+    counter = 0
+    for x in (L):
+        if x == 9:
+            counter = counter + 1
+        else:
+            counter = counter + 0
+    return counter
+print "count9([1, 2, 9]), 1 == ",count9([1, 2, 9])
+print "count9([1, 9, 9]), 2 == ",count9([1, 9, 9])
+print "count9([1, 9, 9, 3, 9]), 3 == ",count9([1, 9, 9, 3, 9])
