@@ -94,3 +94,38 @@ def count9(L):
 print "count9([1, 2, 9]), 1 == ",count9([1, 2, 9])
 print "count9([1, 9, 9]), 2 == ",count9([1, 9, 9])
 print "count9([1, 9, 9, 3, 9]), 3 == ",count9([1, 9, 9, 3, 9])
+
+
+def printRect( width, height, symbol):
+    for x in range(height):
+        print (symbol*width)
+printRect( 4, 6, '%' )
+
+
+def printTriangle( width, symbol, rightSideUp):
+    bringback = 0
+    rightSideUpBringBack = width +1
+    if rightSideUp == True:
+        for x in range(width):
+            bringback = bringback + 1
+            print (bringback*symbol)
+    else:
+        for x in range(width):
+            rightSideUpBringBack = rightSideUpBringBack - 1
+            print (rightSideUpBringBack*symbol)
+printTriangle( 3, '@', True)
+printTriangle( 3, '@', False )
+
+
+def printBumps( num, symbol1, symbol2 ):
+    lengthOfBump = #KEEP WORKING ON THIS ONE!!!!!!!
+    for x in range
+    bringback = 0
+    bottomTriangle = width +1
+        for x in range(width):
+            bringback = bringback + 1
+            print (bringback*symbol)
+    else:
+        for x in range(width):
+             =  - 1
+            print (rightSideUpBringBack*symbol)
