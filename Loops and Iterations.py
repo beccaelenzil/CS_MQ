@@ -1,3 +1,5 @@
+import math
+
 def power(b,p):
     """
     """
@@ -31,10 +33,34 @@ print "summedOdds( range(3,10) ): should be 24 == ", summedOdds( range(3,10) )
 
 
 def mult(n,m): #KEEP WORKING ON THIS ONE
-    result = 0
-    for e in L:
-        result = result + e  # or result += e
-    return result
+    if n<0:
+        begin = n
+        for x in range(1,m):
+            n = n + begin
+        return n
+    elif m<0:
+        begin = m
+        for x in range(1,n):
+            m = m + begin
+        return m
+    elif n>0 and m>0:
+        begin = n
+        for x in range(1,m):
+            n = n + begin
+        return n
+    elif n<0 and m<0:
+        begin = abs(n)
+        #HOW DO I GET THIS PART????????******************
+        for x in (1,abs(m)):
+            n = n + begin
+        return n
+    elif n == 0 or m == 0:
+        return 0
 # tests!
-print "summed( [4,5,6] ): should be 15 == ", summed( [4,5,6] )
-print "summed( range(3,10) ): should be 42 == ", summed( range(3,10) )
+print "mult(6,7)    42 ==", mult(6,7)
+print "mult(6,-7)  -42 ==", mult(6,-7)
+print "mult(-6,7)  -42 ==", mult(-6,7)
+print "mult(-6,-7)  42 ==", mult(-6,-7)
+print "mult(6,0)     0 ==", mult(6,0)
+print "mult(0,7)     0 ==", mult(0,7)
+print "mult(0,0)     0 ==", mult(0,0)
