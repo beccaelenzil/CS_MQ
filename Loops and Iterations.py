@@ -118,14 +118,18 @@ printTriangle( 3, '@', False )
 
 
 def printBumps( num, symbol1, symbol2 ):
-    lengthOfBump = #KEEP WORKING ON THIS ONE!!!!!!!
-    for x in range
-    bringback = 0
-    bottomTriangle = width +1
+    for x in range(num+1):
+        printTriangle(x,symbol1,True)
+        printTriangle(x,symbol2,False)
+print printBumps( 4, '%', '#' )
+
+
+def printDiamond(width, symbol):
+    diamondstart = 0
+    if x < width: #NOT DONE KEEP WORKING ON THIS ONE!!!!!
         for x in range(width):
-            bringback = bringback + 1
-            print (bringback*symbol)
-    else:
-        for x in range(width):
-             =  - 1
-            print (rightSideUpBringBack*symbol)
+            diamondstart = diamondstart + 1
+            print diamondstart*symbol
+        if x == width:
+            print diamond
+printDiamond( 3, '&' )
