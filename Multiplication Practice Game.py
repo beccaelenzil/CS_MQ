@@ -21,7 +21,10 @@ def instructions():
     print 'Every correct answer gets you 1 point'
     print 'Every incorrect answer gets you -2 points'
     print ' '
+def name():
+    askName = raw_input(name)
 def main():
+    name()
     instructions()
     play()
 main()
