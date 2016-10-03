@@ -6,7 +6,7 @@ def play():
     correctAnswer = 146
     gameCount = 0
     score = 0
-    for gameCount in range(0,6):
+    for gameCount in range(0,5):
         if userAnswer != correctAnswer or userAnswer == correctAnswer:
             factor1 = random.randint(0,12)
             factor2 = random.randint(0,12)
@@ -24,7 +24,7 @@ def play():
                 print ('Try again!')
                 gameCount = gameCount + 1
                 print gameCount
-    print 'Your score is ' + str(score)
+    print 'Your total score is ' + str(score)
 def instructions():
     print 'Hey there sailor!'
     print 'Every correct answer gets you 1 point'
@@ -32,8 +32,6 @@ def instructions():
     print ' '
 def endScore():
     print 'Nice job!'
-    print 'Your total score is '
-    print int(score)
 def main():
     instructions()
     play()
