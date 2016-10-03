@@ -16,25 +16,29 @@ def play():
             if userAnswer == (factor1*factor2):
                 score = score + 1
                 print ('Correct!')
+                print ' '
                 gameCount = gameCount + 1
-                print gameCount
             else:
                 score = score - 2
                 print ('Wrong!')
                 print ('Try again!')
+                print ' '
                 gameCount = gameCount + 1
-                print gameCount
-    print 'Your total score is ' + str(score)
+    #print 'Your total score is ' + str(score)
+    return score
 def instructions():
     print 'Hey there sailor!'
     print 'Every correct answer gets you 1 point'
     print 'Every incorrect answer gets you -2 points'
+    print 'You have five tries to get the highest score'
+    print 'Good luck!'
     print ' '
-def endScore():
+def endScore(score):
     print 'Nice job!'
+    print 'Your total score is ' + str(score)
 def main():
     instructions()
-    play()
-    endScore()
+    score = play()
+    endScore(score)
 main()
 # GET HELP ON MAKING THE SCORE PRINT AT THE END!!!!!!!!*********
