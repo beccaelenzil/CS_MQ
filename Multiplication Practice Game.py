@@ -1,6 +1,6 @@
 import random
 
-
+#My enhancement is to create a scoring system that tells you how well you did at the end
 def play():
     userAnswer = 145
     correctAnswer = 146
@@ -12,6 +12,10 @@ def play():
             factor2 = random.randint(0,12)
             userAnswer = raw_input('Please enter the product of ' + str(factor1) + ' and ' + str(factor2))
             correctAnswer = factor1 * factor2
+            while userAnswer.isdigit() == False:
+                print 'Please input a numerical value'
+                print ' '
+                userAnswer = raw_input('Please enter the product of ' + str(factor1) + ' and ' + str(factor2))
             userAnswer = int(userAnswer)
             if userAnswer == (factor1*factor2):
                 score = score + 1
