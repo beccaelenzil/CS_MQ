@@ -28,7 +28,7 @@ def play():
                 print ('Try again!')
                 print ' '
                 gameCount = gameCount + 1
-
+    return score
 def instructions():
     print 'Hey there sailor!'
     print 'Every correct answer gets you 1 point'
@@ -41,11 +41,7 @@ def endScore(score):
     print 'Your total score is ' + str(score)
 def main():
     instructions()
-<<<<<<< Updated upstream
     score = play()
-=======
-    score = play() #score is set equal to what the play() function returns
->>>>>>> Stashed changes
     endScore(score)
 main()
 # GET HELP ON MAKING THE SCORE PRINT AT THE END!!!!!!!!*********
