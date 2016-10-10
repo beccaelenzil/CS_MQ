@@ -1,4 +1,4 @@
-Total Score:
+Total Score: 8/9
 Notes: Nice ASCII art
 -------------------------------------
 Problem 1) For Loops --- Score: 3/3
@@ -36,9 +36,11 @@ count9([1, 9, 9]), 2 ==  2 True
 count9([1, 9, 9, 3, 9]), 3 ==  3 True
 
 -------------------------------------
-Problem 2) Multiplication Practice Game --- Score:
-Notes:
+Problem 2) Multiplication Practice Game --- Score: 2/3
+Notes: Nice character and scoring.
+
+Unfortunately, the game doesn't give me the opportunity to try a problem again. This is a bug.
 
 -------------------------------------
-Problem 3) Guess My Number --- Score:
-Notes:
+Problem 3) Guess My Number --- Score: 3/3
+Notes: Nice formatting and counter.
