@@ -7,7 +7,8 @@ def play():
     x = int(userValue)
     ruleOutput = (aValue * int(userValue)) + bValue
     print 'm*' + str(userValue) + ' + ' + 'b' + ' = ' + str(ruleOutput)
-
+    print ' '
+    guessYesOrNo = raw_input('Would you like to guess to guess m and b values? ')
 play()
 
 """
