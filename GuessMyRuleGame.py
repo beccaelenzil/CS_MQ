@@ -1,11 +1,14 @@
 import random
 
 #Sets two variables, Slope and yIntercept, to be random numbers between 1 and 10
-Slope = random.randint(1,10)
-yIntercept = random.randint(1,10)
+def setValues():
+    Slope = random.randint(1,10)
+    yIntercept = random.randint(1,10)
+    inputOutput(Slope, yIntercept)
 
-#Requests user input, and prompts the user when they try to input non numerical value
-def inputOutput():
+#Requests user input, and prompts the user when they try to inSeput non numerical value
+def inputOutput(Slope, yIntercept):
+    gameCount = 0
     x = raw_input("Please select a number: ")
     while x.isdigit() == False:
         x = raw_input("Only numbers please. Please select a number: ")
@@ -14,6 +17,7 @@ def inputOutput():
     compRule = Slope*int(x)+yIntercept
     print 'm('+str(int(x))+')+'+'b= '+str(compRule)
     print ' '
+    gameCount = gameCount + 1
 
     y = raw_input('Do you need another guess? Enter yes or no: ')
     y = y.lower()
@@ -22,14 +26,15 @@ def inputOutput():
 
 
     if y == 'yes':
-        inputOutput()
+        inputOutput(Slope, yIntercept)
     elif y == 'no':
-        GuessRule()
+        GuessRule(Slope, yIntercept)
+    return gameCount
 
 
 #Asks user their guess for m, and if correct prompts the user for their guess for b,
 #if not correct however, tells user they are incorrect and has them go back to plugging in values
-def GuessRule():
+def GuessRule(Slope, yIntercept):
     z = raw_input('What do you think m is? ')
     while z.isdigit() == False:
         z = raw_input('m is an integer. What do you think m is? ')
@@ -46,19 +51,23 @@ def GuessRule():
         else:
             print 'Nope'
             print 'Try more numbers'
-            inputOutput()
+            inputOutput(Slope, yIntercept)
 
     else:
         print 'Nope'
         print 'Try more numbers'
         print ' '
-        inputOutput()
+        inputOutput(Slope, yIntercept)
+
+def triesToPlayAgain(gameCount):
+    print 'That took you ' + str(gameCount) + 'tries!'
+    playAgain()
 
 def  playAgain():
     m = raw_input('Would you like to play again? Enter yes or no: ')
     m = m.lower()
     if m == 'yes':
-        inputOutput()
+        setValues()
     elif m == 'no':
         print "Byebye!"
     while m != 'yes' and m!= 'no':
@@ -67,7 +76,7 @@ def  playAgain():
 
 #Explains instructions of game to user
 def instructions():
-    print "Hello there! Let's play a game."
+    print "Hello, and welcome, to Guess My Rule Game!"
     print "I'm thinking of two numbers, each between 1 and 10"
     print "You give me a number, and i'll show you what my mystery function spits out"
     print "You try to guess my numbers."
@@ -75,45 +84,9 @@ def instructions():
     print "m and b are my numbers, while x is yours."
     print "When you think you know my numbers, tell me you don't need more guesses by typing 'no' and you can try to guess them."
     print " "
-    inputOutput()
-
-
-instructions()
-
-
-
-
-
-
-
-
-#OLD CODE BEFORE COLLABORATION
-"""
-import random
-
-aValue = random.randint(1,5)
-bValue = random.randint(1,5)
-def play():
-    userValue = raw_input('Please input a sample value for the mystery rule ')
-    x = int(userValue)
-    ruleOutput = (aValue * int(userValue)) + bValue
-    print 'm*' + str(userValue) + ' + ' + 'b' + ' = ' + str(ruleOutput)
-    print ' '
-    guessYesOrNo = raw_input('Would you like to guess to guess m and b values? ')
-play()
-
-
-def instructions():
-    print 'Hello!'
-    print 'Welcome to Guess my Rule Game (by Matt and Colin)'
-
-def endGame():
-
 
 def main():
     instructions()
-    play()
-    endGame()
+    setValues()
 
 main()
-"""
