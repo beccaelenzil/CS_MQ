@@ -2,13 +2,13 @@ import random
 
 #Sets two variables, Slope and yIntercept, to be random numbers between 1 and 10
 def setValues():
+    gameCount = 0
     Slope = random.randint(1,10)
     yIntercept = random.randint(1,10)
-    inputOutput(Slope, yIntercept)
+    inputOutput(Slope, yIntercept, gameCount)
 
 #Requests user input, and prompts the user when they try to inSeput non numerical value
-def inputOutput(Slope, yIntercept):
-    gameCount = 0
+def inputOutput(Slope, yIntercept, gameCount):
     x = raw_input("Please select a number: ")
     while x.isdigit() == False:
         x = raw_input("Only numbers please. Please select a number: ")
@@ -26,15 +26,15 @@ def inputOutput(Slope, yIntercept):
 
 
     if y == 'yes':
-        inputOutput(Slope, yIntercept)
+        inputOutput(Slope, yIntercept, gameCount)
     elif y == 'no':
-        GuessRule(Slope, yIntercept)
+        GuessRule(Slope, yIntercept, gameCount)
     return gameCount
 
 
 #Asks user their guess for m, and if correct prompts the user for their guess for b,
 #if not correct however, tells user they are incorrect and has them go back to plugging in values
-def GuessRule(Slope, yIntercept):
+def GuessRule(Slope, yIntercept, gameCount):
     z = raw_input('What do you think m is? ')
     while z.isdigit() == False:
         z = raw_input('m is an integer. What do you think m is? ')
@@ -47,23 +47,27 @@ def GuessRule(Slope, yIntercept):
         if int(q) == yIntercept:
             print 'You win!'
             print ' '
-            playAgain()
+            triesToPlayAgain(gameCount)
         else:
             print 'Nope'
             print 'Try more numbers'
-            inputOutput(Slope, yIntercept)
+            inputOutput(Slope, yIntercept, gameCount)
 
     else:
         print 'Nope'
         print 'Try more numbers'
         print ' '
-        inputOutput(Slope, yIntercept)
+        inputOutput(Slope, yIntercept, gameCount)
 
 def triesToPlayAgain(gameCount):
-    print 'That took you ' + str(gameCount) + 'tries!'
+    if gameCount == 1:
+        print 'That took you ' + str(gameCount) + ' try!'
+    else:
+        print 'That took you ' + str(gameCount) + ' tries!'
     playAgain()
 
 def  playAgain():
+    print ' '
     m = raw_input('Would you like to play again? Enter yes or no: ')
     m = m.lower()
     if m == 'yes':
