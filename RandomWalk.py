@@ -12,7 +12,7 @@ def rwpos(start, nsteps):
     currentPosition = start
     for i in range(0, nsteps):
         currentPosition = currentPosition + rs()
-        print 'Current position is ' + str(currentPosition)
+        #print 'Current position is ' + str(currentPosition)
     return currentPosition
 #print rwpos(20, 7)
 
@@ -20,7 +20,6 @@ def rwpos(start, nsteps):
 def rwsteps(start, low, hi):
     currentPosition = start
     geigerCounter = 0
-    total_spaces = (hi-low)-2
     left_spaces = low + start
     right_spaces = hi - start
     print '|' + left_spaces*' ' + 'X' + right_spaces*' ' + '|'+str(currentPosition)
@@ -37,4 +36,21 @@ def rwsteps(start, low, hi):
         print '|' + left_spaces*' ' + 'X' + right_spaces*' ' + '|'+str(currentPosition)
     print 'That took ' + str(geigerCounter) + ' steps'
     return currentPosition
-print rwsteps(5,0,10)
+#print rwsteps(5,0,10)
+
+
+def rwposPlain(start, nsteps):
+    currentPosition = start
+    for i in range(0, nsteps):
+        currentPosition = currentPosition + rs()
+    return currentPosition
+#print rwpos(20, 7)
+
+
+def ave_signed_displacement(numtrials):
+    total = 0
+    for i in range(numtrials):
+        total = total + rwposPlain(0,100)
+    actualTotal = total/numtrials
+    return actualTotal
+print ave_signed_displacement(3)
