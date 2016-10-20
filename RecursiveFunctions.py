@@ -36,9 +36,21 @@ def listReverseIter(L):
         return L
     else:
         return L[::-1]
-print listReverseIter([1,2,3,4,5])
+#print listReverseIter([1,2,3,4,5])
 
+
+def listReverseIterDifferent(L):
+    K = []
+    for i in range(len(L)-1, -1, -1):
+        K.append(L[i])
+    return K
+#print listReverseIterDifferent([10,9,8,7])
 
 def listReverse(L):
-#WORK ON RECURSIVE ONE!!!!!!
-#GET HELP IN CLASS!!!!!!!
+    if len(L) == 1:
+        return L
+    elif len(L) == 0:
+        return 'error'
+    else:
+        return [L[-1]] + listReverse(L[0:-1])
+print listReverse([42,23,16,15,8,4])
