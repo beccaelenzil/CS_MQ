@@ -53,4 +53,20 @@ def ave_signed_displacement(numtrials):
         total = total + rwposPlain(0,100)
     actualTotal = total/numtrials
     return actualTotal
-print ave_signed_displacement(3)
+#print ave_signed_displacement(3)
+
+
+def ave_squared_displacement(numtrials):
+    total = 0
+    for i in range(numtrials):
+        total = total + (rwposPlain(0,100)**2)
+    actualTotal = total / numtrials
+    return actualTotal
+print ave_squared_displacement(5)
+
+"""
+   In order to compute the average signed displacement for
+   a random walker after 100 random steps, I used a for loop for
+
+  !!!! Answer the 1 and 2 questions here also!!!!
+"""
