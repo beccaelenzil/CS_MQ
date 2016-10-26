@@ -59,10 +59,10 @@ def ave_signed_displacement(numtrials):
 def ave_squared_displacement(numtrials):
     total = 0
     for i in range(numtrials):
-        total = total + (rwposPlain(0,1000)**2)
+        total = total + (rwposPlain(0,500)**2)
     actualTotal = total / numtrials
     return actualTotal
-print ave_squared_displacement(100)
+print ave_squared_displacement(400)
 
 """
    In order to compute the average signed displacement for
