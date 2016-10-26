@@ -70,3 +70,6 @@ print ave_squared_displacement(100)
 
   !!!! Answer the 1 and 2 questions here also!!!!
 """
+
+
+rwsteps(5,0,10)
