@@ -107,14 +107,34 @@ def innerReverse(A):
                 newA[row][col] = 1
     return newA
 A = randomCells(10,5)
-printBoard(A)
-print " "
+#printBoard(A)
+#print " "
 A = innerReverse(A)
-printBoard(A)
+#printBoard(A)
 
 
 def countNeighbors(row, col, A):
+    NeighborCount = 0
+    for r in range(row-1, row+2):
+        for c in range(col-1, col+2):
+            NeighborCount = NeighborCount + A[r][c]
+    NeighborCount -= A[row][col]
+    return NeighborCount
+A = [ [0,0,0,0,0],
+      [0,0,1,0,0],
+      [0,0,1,0,0],
+      [0,0,1,0,0],
+      [0,0,0,0,0]]
+printBoard(A)
+print countNeighbors(2,1,A)
+print countNeighbors(2,2,A)
+print countNeighbors(0,1,A)
 
 
 def next_life_generation(A):
-    
+    for row in
+        for col in
+            if neighborCount > 3:
+            elif neighborCount < 2:
+            elif neighborCount == 3:
+
