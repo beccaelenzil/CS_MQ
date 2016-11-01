@@ -1,10 +1,5 @@
-# python 2
-#
-# Game of Life
-#
-# Name: Matt
-
 import random
+
 
 def createOneRow(width):
     """ returns one row of zeros of width "width"...
@@ -154,3 +149,6 @@ for x in range(10):
     A = next_life_generation(A)
     printBoard(A)
     print " "
+
+
+def unsegregatedBoard(width, height, percentX, ):
