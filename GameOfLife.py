@@ -40,7 +40,7 @@ def printBoard(A):
         for col in row:
             line += str(col)
         print line
-A = createBoard(10,10)
+#A = createBoard(10,10)
 #printBoard(A)
 
 
@@ -48,7 +48,7 @@ def diagonalize(width, height):
     """ creates an empty board and then modifies it
         so that it has a diagonal strip of "on" cells.
     """
-    A = createBoard(width, height)
+    #A = createBoard(width, height)
 
     for row in range(height):
         for col in range(width):
@@ -58,28 +58,28 @@ def diagonalize(width, height):
                 A[row][col] = 0
 
     return A
-A = diagonalize(7,7)
+#A = diagonalize(7,7)
 #print A
 #printBoard(A)
 
 
 def innerCells(w, h):
-    A = createBoard(w, h)
+    #A = createBoard(w, h)
     for row in range(1,h-1):
         for col in range(1,w-1):
             A[row][col] = 1
     return A
-A = innerCells(10,10)
+#A = innerCells(10,10)
 #printBoard(A)
 
 
 def randomCells(w,h):
-    A = createBoard(w, h)
+    #A = createBoard(w, h)
     for row in range(1,h-1):
         for col in range(1,w-1):
             A[row][col] = random.choice([0,1])
     return A
-A = randomCells(10,8)
+#A = randomCells(10,8)
 #printBoard(A)
 
 
@@ -91,7 +91,7 @@ def copy(A):
         for col in range(width):
             newA[row][col] = A[row][col]
     return newA
-A = randomCells(5,5)
+#A = randomCells(5,5)
 #printBoard(A)
 
 
@@ -106,10 +106,10 @@ def innerReverse(A):
             else:
                 newA[row][col] = 1
     return newA
-A = randomCells(10,5)
+#A = randomCells(10,5)
 #printBoard(A)
 #print " "
-A = innerReverse(A)
+#A = innerReverse(A)
 #printBoard(A)
 
 
@@ -120,17 +120,17 @@ def countNeighbors(row, col, A):
             NeighborCount = NeighborCount + A[r][c]
     NeighborCount -= A[row][col]
     return NeighborCount
-
+"""
 A = [ [0,0,0,0,0],
       [0,0,1,0,0],
       [0,0,1,0,0],
       [0,0,1,0,0],
       [0,0,0,0,0]]
-
-printBoard(A)
-print countNeighbors(2,1,A)
-print countNeighbors(2,2,A)
-print countNeighbors(0,1,A)
+"""
+#printBoard(A)
+#print countNeighbors(2,1,A)
+#print countNeighbors(2,2,A)
+#print countNeighbors(0,1,A)
 
 
 def next_life_generation(A):
