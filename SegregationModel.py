@@ -97,7 +97,7 @@ for x in range(10):
     print " "
 """
 
-def unsegregatedBoard(width, height, percentX, percentY):
+def unsegregatedBoard(width, height, percentX, percentY ):
     numberX = int(width*height*percentX)
     numberY = int(width*height*percentY)
     number0 = (width*height)-numberX-numberY
@@ -114,3 +114,20 @@ def unsegregatedBoard(width, height, percentX, percentY):
 
 Z = unsegregatedBoard(10,10,.4,.4)
 printBoard(Z)
+
+
+def similarNeighborsPercent(row, col, A):
+    aLikeNeighborCount = -1
+    totalNeighborCount = 0
+
+    for r in range(row-1, row+2):
+        for c in range(col-1, col+2):
+            if A[r][c] != '0':
+                totalNeighborCount += 1
+            elif A[r][c] == A[row][col]:
+                aLikeNeighborCount += 1
+    return aLikeNeighborCount/totalNeighborCount
+
+Z = unsegregatedBoard(5,5,0,.3)
+printBoard(Z)
+print similarNeighborsPercent(2,2,Z)

@@ -64,7 +64,7 @@ def diagonalize(width, height):
 
 
 def innerCells(w, h):
-    #A = createBoard(w, h)
+    A = createBoard(w, h)
     for row in range(1,h-1):
         for col in range(1,w-1):
             A[row][col] = 1
@@ -74,7 +74,7 @@ def innerCells(w, h):
 
 
 def randomCells(w,h):
-    #A = createBoard(w, h)
+    A = createBoard(w, h)
     for row in range(1,h-1):
         for col in range(1,w-1):
             A[row][col] = random.choice([0,1])
