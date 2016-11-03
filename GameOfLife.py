@@ -48,7 +48,7 @@ def diagonalize(width, height):
     """ creates an empty board and then modifies it
         so that it has a diagonal strip of "on" cells.
     """
-    #A = createBoard(width, height)
+    A = createBoard(width, height)
 
     for row in range(height):
         for col in range(width):
@@ -147,10 +147,11 @@ def next_life_generation(A):
             elif neighborCount == 3:
                 newA[row][col] = 1
     return newA
-
+'''
 A = randomCells(10,10)
 printBoard(A)
 for x in range(10):
     A = next_life_generation(A)
     printBoard(A)
     print " "
+'''
