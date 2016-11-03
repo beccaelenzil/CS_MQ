@@ -1,7 +1,7 @@
-Total Score: 5/6
+Total Score: 6/6
 Notes:
 -------------------------------------
-Problem 1) Recursive Drawing: 2/3
+Problem 1) Recursive Drawing: 2/3 -- score changed to 3/3
 Notes: missing chai()
 
 -------------------------------------
