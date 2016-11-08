@@ -118,16 +118,24 @@ printBoard(Z)
 
 def similarNeighborsPercent(row, col, A):
     aLikeNeighborCount = -1
-    totalNeighborCount = 0
+    totalNeighborCount = -1
+
 
     for r in range(row-1, row+2):
         for c in range(col-1, col+2):
-            if A[r][c] != '0':
-                totalNeighborCount += 1
-            elif A[r][c] == A[row][col]:
-                aLikeNeighborCount += 1
-    return aLikeNeighborCount/totalNeighborCount
+            if A[row][col] == '0':
+                return 'base is 0'
+            else:
+                if A[r][c] != '0':
+                    totalNeighborCount += 1
+                if A[r][c] == A[row][col]:
+                    aLikeNeighborCount += 1
+    return float(aLikeNeighborCount)/totalNeighborCount
 
-Z = unsegregatedBoard(5,5,0,.3)
+
+Z = unsegregatedBoard(5,5,.3,.25)
 printBoard(Z)
-print similarNeighborsPercent(2,2,Z)
+print similarNeighborsPercent(3,3,Z)
+
+
+def emptySpaces():
