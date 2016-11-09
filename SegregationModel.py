@@ -138,4 +138,27 @@ printBoard(Z)
 print similarNeighborsPercent(3,3,Z)
 
 
-def emptySpaces():
+def emptySpaces(A):
+    L = []
+    h = len(A)
+    w = len(A[0])
+    for row in range(h):
+        for col in range(w):
+            if A[row][col] == '0':
+                L.append([row, col])
+    return L
+
+
+def copy(A):
+    height = len(A)
+    width = len(A[0])
+    newA = createBoard(width, height)
+    for row in range(height):
+        for col in range(width):
+            newA[row][col] = A[row][col]
+    return newA
+
+
+def nextGeneration(A):
+    height = len(A)
+    width = len(A[0])
