@@ -23,10 +23,10 @@ def createBoard(width, height):
     """
     returns "height" rows of zeros of width "width"...
     """
-    I = []
+    A = []
     for i in range(height):
-        I += [createOneRow(width)]
-    return I
+        A += [createOneRow(width)]
+    return A
 
 
 def printBoard(I):
@@ -52,13 +52,13 @@ def unsegregatedBoard(width,height,percentX,percent0):
             Z[r][c] = population[oiii]
             oiii = oiii + 1
             if r == 0:
-                Z[r][c] = "*"
+                Z[r][c] = "%"
             elif r == height-1:
-                Z[r][c] = "*"
+                Z[r][c] = "%"
             elif c == 0:
-                Z[r][c] = ">"
+                Z[r][c] = "%"
             elif c == width-1:
-                Z[r][c] = "<"
+                Z[r][c] = "%"
 
 
     return Z
@@ -143,6 +143,11 @@ def segregationIndex(height,width,A):
 
     return [segregation, segregationIndex]
 
+A = unsegregatedBoard(10, 10, .3, .3)
+printBoard(A)
+print " "
+i = 0
+
 def copy(A):
     height = len(A)
     width = len(A[0])
@@ -161,15 +166,31 @@ def nextGeneration(A,thresh):
     i=0
     for row in range(1,height-1):
         for col in range(1,width-1):
+            #[sameNeighbor, totalNeighbor] = countNeighbors(row, col, A)
             if SimilarNeighborsPercent(row,col,A)< thresh and i<len(emptyList):
                 newA[row][col] = 0
                 newA[emptyList[i][0]][emptyList[i][1]] = A[row][col]
                 i+=1
-    return newA
+    static = (newA == A)
+    return [static, A]
 
 #Take boarder out of neighbor count
 
 A = unsegregatedBoard(11,11,.4,.4)
 printBoard(A)
-A = nextGeneration(A,.5)
-printBoard(A)
+print " "
+static = False
+i = 0
+while static == False and i<5000:
+    [static,A] = nextGeneration(A,.5)
+    printBoard(A)
+    print " "
+    i = i+1
+
+'''
+def segregation(A, threshold, percentX, percentY):
+    newA = copy(A)
+    height = len(A)
+    width = len(A[0])
+    i = 0
+'''
