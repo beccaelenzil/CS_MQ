@@ -1,5 +1,11 @@
 import random
 
+def rs():
+    """ rs chooses a random step and returns it
+        note that a call to rs() requires parentheses
+        inputs: none at all!
+    """
+    return random.choice([0,1])
 
 def createOneRow(width):
     """ returns one row of zeros of width "width"...
@@ -10,133 +16,77 @@ def createOneRow(width):
         row += [0]
     return row
 
-"""
-def createBoardFake(width, height):
-    for i in range(height):
-        #print width*"0"
+#print createOneRow(10)
 
-    #prints zeroes with length width, and height of rows
-
-#createBoardFake(5, 4)
-"""
 
 def createBoard(width, height):
-    #returns a 2d array with "height" rows and "width" cols
-    A = []
-    for row in range(height):
-        A += [createOneRow(width)]    # What do you need to add a whole row here?
-    return A
-#print createBoard(10,5)
+    """
+    returns "height" rows of zeros of width "width"...
+    """
+    I = []
+    for i in range(height):
+        I += [createOneRow(width)]
+    return I
 
 
-def printBoard(A):
-    for row in A:
+def printBoard(I):
+    for row in I:
         line = ''
         for col in row:
             line += str(col)
         print line
-A = createBoard(10,10)
-#printBoard(A)
 
+I = createBoard(5,5)
+#printBoard(I)
 
-
-def copy(A):
-    height = len(A)
-    width = len(A[0])
-    newA = createBoard(width, height)
-    for row in range(height):
-        for col in range(width):
-            newA[row][col] = A[row][col]
-    return newA
-#A = randomCells(5,5)
-#printBoard(A)
-
-
-
-
-def countNeighbors(row, col, A):
-    NeighborCount = 0
-    for r in range(row-1, row+2):
-        for c in range(col-1, col+2):
-            NeighborCount = NeighborCount + A[r][c]
-    NeighborCount -= A[row][col]
-    return NeighborCount
-"""
-A = [ [0,0,0,0,0],
-      [0,0,1,0,0],
-      [0,0,1,0,0],
-      [0,0,1,0,0],
-      [0,0,0,0,0]]
-
-printBoard(A)
-print countNeighbors(2,1,A)
-print countNeighbors(2,2,A)
-print countNeighbors(0,1,A)
-"""
-"""
-def next_life_generation(A):
-    newA=copy(A)
-    height = len(A)
-    width = len(A[0])
-    for row in range(1,height-1):
-        for col in range(1,width-1):
-            neighborCount = countNeighbors(row, col, A)
-            if neighborCount > 3:
-                newA[row][col] = 0
-            elif neighborCount < 2:
-                newA[row][col] = 0
-            elif neighborCount == 3:
-                newA[row][col] = 1
-    return newA
-
-A = randomCells(10,10)
-printBoard(A)
-for x in range(10):
-    A = next_life_generation(A)
-    printBoard(A)
-    print " "
-"""
-
-def unsegregatedBoard(width, height, percentX, percentY ):
+def unsegregatedBoard(width,height,percentX,percent0):
     numberX = int(width*height*percentX)
-    numberY = int(width*height*percentY)
-    number0 = (width*height)-numberX-numberY
-    population = numberX*'X' + numberY*'Y' + number0*'0'
+    numberY = int(width*height*percent0)
+    numberO = width*height-numberY-numberX
+    population = numberO*'0' + numberX*'X' + numberY*'Y'
     population = random.sample(population, width*height)
+    oiii=0
+    Z = createBoard(width,height)
+    for r in range(width):
+        for c in range(height):
+            Z[r][c] = population[oiii]
+            oiii = oiii + 1
+            if r == 0:
+                Z[r][c] = "*"
+            elif r == height-1:
+                Z[r][c] = "*"
+            elif c == 0:
+                Z[r][c] = ">"
+            elif c == width-1:
+                Z[r][c] = "<"
 
-    heya = 0
-    Z = createBoard(width, height)
-    for row in range(width):
-        for col in range(height):
-            Z[row][col] = population[heya]
-            heya = heya +1
+
     return Z
 
-Z = unsegregatedBoard(10,10,.4,.4)
-printBoard(Z)
 
+#Z = unsegregatedBoard(10,10,0.30,.25)
+#printBoard(Z)
 
-def similarNeighborsPercent(row, col, A):
-    aLikeNeighborCount = -1
+def SimilarNeighborsPercent(row,col,A):
+    alikeNeighborCount = -1
     totalNeighborCount = -1
 
-
+   # number of alike neighbors/number of unalike neighbors+number of alike neighbors
     for r in range(row-1, row+2):
-        for c in range(col-1, col+2):
+        for c in range(col-1,col+2):
             if A[row][col] == '0':
                 return 'base is 0'
             else:
-                if A[r][c] != '0':
+                if A[r][c]!='0':
                     totalNeighborCount += 1
                 if A[r][c] == A[row][col]:
-                    aLikeNeighborCount += 1
-    return float(aLikeNeighborCount)/totalNeighborCount
+                    alikeNeighborCount += 1
+    return float(alikeNeighborCount)/totalNeighborCount
 
 
-Z = unsegregatedBoard(5,5,.3,.25)
-printBoard(Z)
-print similarNeighborsPercent(3,3,Z)
-
+#Z = unsegregatedBoard(5,5,0.30,.25)
+#printBoard(Z)
+#print SimilarNeighborsPercent(1,1,Z)
 
 def emptySpaces(A):
     L = []
@@ -145,20 +95,81 @@ def emptySpaces(A):
     for row in range(h):
         for col in range(w):
             if A[row][col] == '0':
-                L.append([row, col])
+               L.append([row,col])
+            else:
+                pass
     return L
 
+#Z = unsegregatedBoard(5,5,0.30,.25)
+#printBoard(Z)
+#print emptySpaces(Z)
+
+
+def countNeighbors(row,col,A):
+    sameNeighbor = -1
+    totalNeighbor = -1
+
+   # number of alike neighbors/number of unalike neighbors+number of alike neighbors
+    for r in range(row-1, row+2):
+        for c in range(col-1,col+2):
+            if A[row][col] == '0':
+                return 'base is 0'
+            else:
+                if A[r][c]!='0':
+                    totalNeighbor += 1
+                if A[r][c] == A[row][col]:
+                    sameNeighbor += 1
+    return sameNeighbor and totalNeighbor
+
+def segregationIndex(height,width,A):
+    """
+    takes in a matrix and returns a segregation index
+    """
+    segregation = copy(A)
+    segregationList = []
+
+    for row in range(height):
+        for col in range(width):
+            if A[row][col] != ' ':
+                [sameNeighbors, totalNeighbors] = countNeighbors(row,col,A)
+                segregation[row][col] = float(sameNeighbors)/float(totalNeighbors)
+                # I could make a heat map of segregation
+
+                # put it into a list so we can easily take the average
+                segregationList.append(segregation[row][col])
+
+    # take the average of the segregationIndex for each cell to get a single metric
+    segregationIndex = sum(segregationList)/len(segregationList)
+
+    return [segregation, segregationIndex]
 
 def copy(A):
     height = len(A)
     width = len(A[0])
-    newA = createBoard(width, height)
+    newA = createBoard(width,height)
     for row in range(height):
         for col in range(width):
-            newA[row][col] = A[row][col]
+            newA[row][col]= A[row][col]
     return newA
 
-
-def nextGeneration(A):
+def nextGeneration(A,thresh):
     height = len(A)
     width = len(A[0])
+    newA = copy(A)
+    emptyList = random.sample(emptySpaces(A), len(emptySpaces(A)))
+    print emptyList
+    i=0
+    for row in range(1,height-1):
+        for col in range(1,width-1):
+            if SimilarNeighborsPercent(row,col,A)< thresh and i<len(emptyList):
+                newA[row][col] = 0
+                newA[emptyList[i][0]][emptyList[i][1]] = A[row][col]
+                i+=1
+    return newA
+
+#Take boarder out of neighbor count
+
+A = unsegregatedBoard(11,11,.4,.4)
+printBoard(A)
+A = nextGeneration(A,.5)
+printBoard(A)
