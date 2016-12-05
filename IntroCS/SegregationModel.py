@@ -181,7 +181,7 @@ printBoard(A)
 print " "
 static = False
 i = 0
-while static == False and i<5000:
+while static == False and i<100:
     [static,A] = nextGeneration(A,.5)
     printBoard(A)
     print " "
