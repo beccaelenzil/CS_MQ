@@ -85,22 +85,22 @@ def camellinAlong():
             print 'Thanks for playing'
 
 
-        if nativesDistance < 20:
+        if nativesDistance < 20 and done == False:
             if 0 < nativesDistance < 20:
                 print 'The natives are getting close!'
             elif nativesDistance < 1:
                 print 'The natives caught you!'
                 done = True
-        if camelTiredness > 10:
+        if camelTiredness > 10 and done == False:
             if 19 > camelTiredness > 10 and distanceLeft > 0:
                 print 'Your camel is getting tired!'
             elif camelTiredness > 19 and distanceLeft > 0:
                 print 'Your camel died!'
                 done = True
-        if distanceLeft < 1:
+        if distanceLeft < 1 and done == False:
             print 'You made it to the end!'
             done = True
-        if thirstiness > 10:
+        if thirstiness > 10 and done == False :
             if 19 > thirstiness > 10 and distanceLeft > 0:
                 print 'You are getting thirsty!'
             elif thirstiness > 19 and distanceLeft > 0:
