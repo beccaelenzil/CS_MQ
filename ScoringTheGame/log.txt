@@ -1,6 +1,15 @@
 Week 1 (11/30-12/2)
+This week I unfortunately missed, and was not at school. I did however check out the logistics of the
+camel game, and of the graphics reading.
 
 Week 2 (12/5-12/11)
+This week I decided what I wanted to make for my game, and met with my music people. I decided to make
+an animal, specifically duck themed alien/shooter game where the spaceship is fixed to a certain horizontal
+line, and then fires at aliens/things that are above it.
+I also programmed and finished my camel game, and started reading the graphics section, and also test
+out some of the graphics instructions.
+I also worked to get my github back online, and am still currently trying to trace it back so that
+everything is synced up.
 
 Week 3 (12/12 - 12/16)
 
