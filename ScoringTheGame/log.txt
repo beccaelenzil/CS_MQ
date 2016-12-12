@@ -11,6 +11,8 @@ out some of the graphics instructions.
 I also worked to get my github back online, and am still currently trying to trace it back so that
 everything is synced up.
 
+Camel Game looks good. Score: 5/5
+
 Week 3 (12/12 - 12/16)
 
 Week 4 (1/3-1/8)
