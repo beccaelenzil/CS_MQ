@@ -10,6 +10,8 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 
+PI = 3.141592653
+
 pygame.init()
 
 # Set the width and height of the screen [width, height]
@@ -62,6 +64,32 @@ while not done:
     for x_offset in range(30, 300, 30):
         pygame.draw.line(screen,BLACK,[x_offset,100],[x_offset-10,90],2)
         pygame.draw.line(screen,BLACK,[x_offset,90],[x_offset-10,100],2)
+
+    pygame.draw.rect(screen,BLACK,[20,20,250,100],2)
+
+    pygame.draw.ellipse(screen, BLACK, [20,20,250,100], 2)
+
+    pygame.draw.arc(screen, GREEN, [100,100,250,200],  PI/2,     PI, 2)
+    pygame.draw.arc(screen, BLACK, [100,100,250,200],     0,   PI/2, 2)
+    pygame.draw.arc(screen, RED,   [100,100,250,200],3*PI/2,   2*PI, 2)
+    pygame.draw.arc(screen, BLUE,  [100,100,250,200],    PI, 3*PI/2, 2)
+
+    pygame.draw.polygon(screen, BLACK, [[100,100], [0,200], [200,200]], 5)
+
+    # Select the font to use, size, bold, italics
+    font = pygame.font.SysFont('Calibri', 25, True, False)
+
+    # Render the text. "True" means anti-aliased text.
+    # Black is the color. The variable BLACK was defined
+    # above as a list of [0, 0, 0]
+    # Note: This line creates an image of the letters,
+    # but does not put it on the screen yet.
+    text = font.render("My text",True,BLACK)
+
+    # Put the image of the text on the screen at 250x250
+    screen.blit(text, [350, 350])
+
+
 
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
