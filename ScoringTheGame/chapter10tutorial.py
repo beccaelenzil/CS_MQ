@@ -28,12 +28,15 @@ y_speed = 0
 x_coord = 10
 y_coord = 10
 
+LEFT = True
+RIGHT = True
+UP = True
+DOWN = True
+
 # -------- Main Program Loop -----------
 while not done:
     # --- Main event loop
-    for event in pygame.event.get(): # User did something
-        if event.type == pygame.QUIT: # If user clicked close
-            done = True # Flag that we are done so we exit this loop
+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -43,15 +46,14 @@ while not done:
         elif event.type == pygame.KEYDOWN:
             # Figure out if it was an arrow key. If so
             # adjust speed.
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_LEFT and LEFT == True:
                 x_speed = -3
-            elif event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_RIGHT and RIGHT == True:
                 x_speed = 3
-            elif event.key == pygame.K_UP:
+            elif event.key == pygame.K_UP and UP == True:
                 y_speed = -3
-            elif event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN and DOWN == True:
                 y_speed = 3
-
         # User let up on a key
         elif event.type == pygame.KEYUP:
             # If it is an arrow key, reset vector back to zero
@@ -60,10 +62,28 @@ while not done:
             elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                 y_speed = 0
 
+    if x_coord < 0:
+        LEFT = False
+    elif x_coord > 0:
+        LEFT = True
+    elif x_coord > 990:
+        RIGHT = False
+    elif x_coord < 990:
+        RIGHT = True
+
+    if y_coord < 0:
+        UP = False
+    elif y_coord > 0:
+        UP = True
+    elif y_coord > 990:
+        DOWN = False
+    elif y_coord < 990:
+        DOWN = True
     # Move the object according to the speed vector.
     x_coord += x_speed
     y_coord += y_speed
 
+    print x_coord,y_coord
 
     # --- Game logic should go here
     """
