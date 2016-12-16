@@ -14,6 +14,12 @@ everything is synced up.
 Camel Game looks good. Score: 5/5
 
 Week 3 (12/12 - 12/16)
+This week, after reconvening with my music group, I decided on a final theme/style for my game. I am going
+to incorporate mainly ducks, but also other pond animals like frogs, and do the spaceship shooter structure.
+I also finished going through chapter 5 tutorial this week, and also went through most of chapter 8 and got
+to animating images. I also learned some basic ways of importing background images, as well as images for
+parts of my game, and making the background of the smaller image see through (and so forth).
+
 
 Week 4 (1/3-1/8)
 
