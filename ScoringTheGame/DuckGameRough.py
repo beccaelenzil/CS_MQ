@@ -20,14 +20,23 @@ clock = pygame.time.Clock()
 
 pygame.mouse.set_visible(False)
 
+#title import
+title_text = pygame.image.load("PondDefendersTitle.png").convert()
+title_text.set_colorkey(WHITE)
+screen.blit(title_text, 150, 30)
+
+#duck player image
+duck_shooter = pygame.image.load("duckShooter.png").convert()
+duck_shooter.set_colorkey(RED)
+
 # Speed in pixels per frame
 x_speed = 0
 y_speed = 0
 
 
 # Current position
-x_coord = 10
-y_coord = 10
+x_coord = 400
+y_coord = 540
 
 LEFT = True
 RIGHT = True
@@ -51,14 +60,13 @@ while not done:
         elif event.type == pygame.KEYDOWN:
             # If it is an arrow key, reset vector back to zero
             if event.key == pygame.K_LEFT and x_coord >= 0:
-                x_speed += -3
+                x_speed += -7
             if event.key == pygame.K_RIGHT and x_coord <= 990:
-                x_speed += 3
+                x_speed += 7
             if event.key == pygame.K_UP and y_coord >= 0:
-                y_speed += -3
+                y_speed += -7
             if event.key == pygame.K_DOWN and y_coord <= 640:
-                y_speed += 3
-
+                y_speed += 5
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 x_speed = 0
@@ -84,12 +92,10 @@ while not done:
 
     if x_coord < 0:
         x_coord = 0
-    if x_coord > 980:
-        x_coord =980
-    if y_coord < 0:
-        y_coord = 0
-    if y_coord > 620:
-        y_coord = 620
+    if x_coord > 920:
+        x_coord =920
+    if y_coord != 540:
+        y_coord = 540
 
     print x_coord,y_coord
 
@@ -104,24 +110,7 @@ while not done:
     screen.fill(WHITE)
 
 
-    def draw_stick_figure(screen, x, y):
-        # Head
-        pygame.draw.ellipse(screen, BLACK, [1+x,y,10,10], 0)
-
-        # Legs
-        pygame.draw.line(screen, BLACK ,[5+x,17+y], [10+x,27+y], 2)
-        pygame.draw.line(screen, BLACK, [5+x,17+y], [x,27+y], 2)
-
-        # Body
-        pygame.draw.line(screen, RED, [5+x,17+y], [5+x,7+y], 2)
-
-        # Arms
-        pygame.draw.line(screen, RED, [5+x,7+y], [9+x,17+y], 2)
-        pygame.draw.line(screen, RED, [5+x,7+y], [1+x,17+y], 2)
-
-    draw_stick_figure(screen, x_coord, y_coord)
-
-
+    screen.blit(duck_shooter, [x_coord, y_coord])
 
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()

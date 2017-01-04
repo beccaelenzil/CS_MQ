@@ -33,8 +33,8 @@
       <file leaf-file-name="chapter11tutorial.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter11tutorial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="419">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -43,8 +43,8 @@
       <file leaf-file-name="chapter8tutorial.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter8tutorial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -63,7 +63,7 @@
       <file leaf-file-name="chapter10tutorial.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter10tutorial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="1820">
               <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
               <folding />
             </state>
@@ -73,8 +73,8 @@
       <file leaf-file-name="DuckGameRough.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1767">
-              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -192,7 +192,7 @@
       <recent name="C:\Users\Matt\Documents\GitHub\CS_MQ\ScoringTheGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.chapter10tutorial">
+  <component name="RunManager" selected="Python.DuckGameRough">
     <configuration default="false" name="CamelGame" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -206,23 +206,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CS_MQ" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/CamelGame.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="chapter5tutorial" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ScoringTheGame" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CS_MQ" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/chapter5tutorial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -274,6 +257,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CS_MQ" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/chapter10tutorial.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="DuckGameRough" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ScoringTheGame" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CS_MQ" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -427,18 +427,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.CamelGame" />
-      <item index="1" class="java.lang.String" itemvalue="Python.chapter5tutorial" />
-      <item index="2" class="java.lang.String" itemvalue="Python.chapter11tutorial" />
-      <item index="3" class="java.lang.String" itemvalue="Python.chapter8tutorial" />
-      <item index="4" class="java.lang.String" itemvalue="Python.chapter10tutorial" />
+      <item index="1" class="java.lang.String" itemvalue="Python.chapter11tutorial" />
+      <item index="2" class="java.lang.String" itemvalue="Python.chapter8tutorial" />
+      <item index="3" class="java.lang.String" itemvalue="Python.chapter10tutorial" />
+      <item index="4" class="java.lang.String" itemvalue="Python.DuckGameRough" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.chapter10tutorial" />
-        <item index="1" class="java.lang.String" itemvalue="Python.CamelGame" />
-        <item index="2" class="java.lang.String" itemvalue="Python.chapter8tutorial" />
-        <item index="3" class="java.lang.String" itemvalue="Python.chapter11tutorial" />
-        <item index="4" class="java.lang.String" itemvalue="Python.chapter5tutorial" />
+        <item index="0" class="java.lang.String" itemvalue="Python.DuckGameRough" />
+        <item index="1" class="java.lang.String" itemvalue="Python.chapter10tutorial" />
+        <item index="2" class="java.lang.String" itemvalue="Python.CamelGame" />
+        <item index="3" class="java.lang.String" itemvalue="Python.chapter8tutorial" />
+        <item index="4" class="java.lang.String" itemvalue="Python.chapter11tutorial" />
       </list>
     </recent_temporary>
   </component>
@@ -450,12 +450,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26802507" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26802507" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -868,14 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter11tutorial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter5tutorial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -883,14 +875,6 @@
           <folding>
             <element signature="e#19#32#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter8tutorial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,16 +888,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter10tutorial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="1820">
           <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter8tutorial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter11tutorial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1767">
-          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        <state relative-caret-position="300">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
