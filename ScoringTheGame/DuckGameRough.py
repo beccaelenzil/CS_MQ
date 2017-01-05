@@ -34,6 +34,8 @@ x_speed = 0
 y_speed = 0
 
 shot_y_speed = 0
+shot_y1_speed = 0
+shot_y2_speed = 0
 
 # Current position
 x_coord = 460
@@ -43,6 +45,11 @@ y_coord = 560
 shot_x_coord = 460
 shot_y_coord = 560
 
+shot_x1_coord = 460
+shot_y1_coord = 560
+
+shot_x2_coord = 460
+shot_y2_coord = 560
 
 LEFT = True
 RIGHT = True
@@ -50,6 +57,12 @@ UP = True
 DOWN = True
 
 SHOT = False
+SHOT1 = False
+SHOT2 = False
+SHOT3 = False
+SHOT4 = False
+SHOT5 = False
+SHOT6 = False
 
 # -------- Main Program Loop -----------
 while not done:
@@ -72,27 +85,35 @@ while not done:
         elif event.type == pygame.KEYDOWN:
             # If it is an arrow key, reset vector back to zero
             if event.key == pygame.K_LEFT and x_coord >= 0:
-                x_speed += -7
+                x_speed += -10
             if event.key == pygame.K_RIGHT and x_coord <= 990:
-                x_speed += 7
+                x_speed += 10
             if event.key == pygame.K_UP and y_coord >= 0:
-                y_speed += -7
+                y_speed += -15
             if event.key == pygame.K_DOWN and y_coord <= 640:
                 y_speed += 5
 
-            if event.key == pygame.K_SPACE:
+            #Shot code for shots
+            if event.key == pygame.K_SPACE and SHOT == False:
                 SHOT = True
-                if shot_y_speed > -5:
-                    shot_y_speed += -5
+                if shot_y_speed > -10:
+                    shot_y_speed += -10
                 else:
-                    shot_y_speed = -5
-
+                    shot_y_speed = -10
+            elif event.key == pygame.K_SPACE and SHOT == True:
+                SHOT1 = True
+                if shot_y1_speed > -10:
+                    shot_y1_speed += -10
+                else:
+                    shot_y1_speed = -10
 
 
 
         elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                x_speed = 0
+            if event.key == pygame.K_LEFT:
+                x_speed += 10
+            if event.key == pygame.K_RIGHT:
+                x_speed += -10
             if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                 y_speed = 0
 
@@ -112,17 +133,26 @@ while not done:
     x_coord += x_speed
     y_coord += y_speed
 
+    #shot1
     if SHOT == False:
         shot_y_coord += y_speed
         shot_x_coord += x_speed
     elif SHOT == True:
         shot_y_coord += shot_y_speed
-
-    if shot_y_coord <= 40:
+    if shot_y_coord <= 0:
         SHOT = False
         shot_y_coord = y_coord
         shot_x_coord = x_coord
-
+    #shot2
+    if SHOT1 == False:
+        shot_y1_coord += y_speed
+        shot_x1_coord += x_speed
+    elif SHOT1 == True:
+        shot_y1_coord += shot_y1_speed
+    if shot_y1_coord <= 0:
+        SHOT1 = False
+        shot_y1_coord = y_coord
+        shot_x1_coord = x_coord
 
     if x_coord < 0:
         x_coord = 0
@@ -130,16 +160,31 @@ while not done:
         x_coord =940
     if y_coord != 560:
         y_coord = 560
+    if shot_x_coord < 0:
+        shot_x_coord = 0
+    if shot_x_coord > 940:
+        shot_x_coord = 940
+    if shot_x1_coord < 0:
+        shot_x1_coord = 0
+    if shot_x1_coord > 940:
+        shot_x1_coord = 940
 
     print x_coord,y_coord
     print shot_y_coord
     if SHOT == True:
         print "SHOT"
+    if SHOT1 == True:
+        print "SHOT 111"
     #defining the ball that shoots
     def shooting_motion(screen, x, y):
         #Shot
         pygame.draw.ellipse(screen, BLUE, [1+x,y,20,20], 0)
-
+    def shooting_motion1(screen, x, y):
+        #Shot
+        pygame.draw.ellipse(screen, BLUE, [1+x,y,20,20], 0)
+    def shooting_motion2(screen, x, y):
+        #Shot
+        pygame.draw.ellipse(screen, BLUE, [1+x,y,20,20], 0)
 
     # --- Game logic should go here
     """
@@ -152,6 +197,8 @@ while not done:
     screen.fill(WHITE)
 
     shooting_motion(screen, shot_x_coord+23, shot_y_coord-15)
+    shooting_motion1(screen, shot_x1_coord+23, shot_y1_coord-15)
+    shooting_motion2(screen, shot_x_coord+23, shot_y_coord-15)
 
     screen.blit(duck_shooter, [x_coord, y_coord])
 
