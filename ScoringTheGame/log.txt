@@ -20,8 +20,12 @@ I also finished going through chapter 5 tutorial this week, and also went throug
 to animating images. I also learned some basic ways of importing background images, as well as images for
 parts of my game, and making the background of the smaller image see through (and so forth).
 
-
 Week 4 (1/3-1/8)
+This week I made a lot of progress with my duck game. I finally fixed the duck along a position on the
+y axis, and made it so it will not go off screen, or get stuck on a side. I also imported a duck image for
+the player, and started working on the shooting motion that the duck will do. So far I have programmed the
+duck to have two shots, controlled with the space bar. I also imported a title "Pond Defenders". I also
+programmed the shots to respawn at the position of the duck once they go off screen.
 
 Week 5 (1/9-1/15)
 
