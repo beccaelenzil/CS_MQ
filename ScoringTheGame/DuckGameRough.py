@@ -22,12 +22,12 @@ clock = pygame.time.Clock()
 pygame.mouse.set_visible(False)
 
 #title import
-title_text = pygame.image.load("PondDefendersTitle.png").convert()
+title_text = pygame.image.load("DuckGameImages/PondDefendersTitle.png").convert()
 title_text.set_colorkey(WHITE)
 
 
 #duck player image
-duck_shooter = pygame.image.load("duckShooter.png").convert()
+duck_shooter = pygame.image.load("DuckGameImages/duckShooter.png").convert()
 duck_shooter.set_colorkey(RED)
 
 # Speed in pixels per frame
