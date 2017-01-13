@@ -34,35 +34,50 @@ duck_shooter.set_colorkey(RED)
 x_speed = 0
 y_speed = 0
 
-class speed():
-    def x_speed(self):
-        !!!! KEEP WORKING ON THIS
+class duck():
+    def __init__(self):
+        self.x_coord = 460
+        self.y_coord = 560
+        self.x_speed = 0
+        self.y_speed = 0
+    def move(self):
+        if event.type == pygame.KEYDOWN:
+            # If it is an arrow key, reset vector back to zero
+            if event.key == pygame.K_LEFT and self.x_coord >= 0:
+                self.x_speed += -10
+            if event.key == pygame.K_RIGHT and self.x_coord <= 990:
+                self.x_speed += 10
 
-shot_y_speed = 0
-shot_y1_speed = 0
-shot_y2_speed = 0
-shot_y3_speed = 0
-shot_y4_speed = 0
+daffy = duck()
+
+
+class shot():
+    def __init__(self):
+        self.shot_x_coord = 460
+        self.shot_y_coord = 560
+        self.y_speed = 0
+        self.SHOT = False
+    def shooting(self):
+        if event.key == pygame.K_SPACE and SHOT == False:
+            SHOT = True
+            if self.shot_y_speed > -10:
+                self.shot_y_speed += -10
+            else:
+                self.shot_y_speed = -10
+
+
+shot1 = shot()
+shot2 = shot()
+shot3 = shot()
+shot4 = shot()
+shot5 = shot()
+
+
 
 # Current position
 x_coord = 460
 y_coord = 560
 
-# current shot position
-shot_x_coord = 460
-shot_y_coord = 560
-
-shot_x1_coord = 460
-shot_y1_coord = 560
-
-shot_x2_coord = 460
-shot_y2_coord = 560
-
-shot_x3_coord = 460
-shot_y3_coord = 560
-
-shot_x4_coord = 460
-shot_y4_coord = 560
 
 LEFT = True
 RIGHT = True
@@ -91,16 +106,6 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-
-
-
-        # User let up on a key
-        elif event.type == pygame.KEYDOWN:
-            # If it is an arrow key, reset vector back to zero
-            if event.key == pygame.K_LEFT and x_coord >= 0:
-                x_speed += -10
-            if event.key == pygame.K_RIGHT and x_coord <= 990:
-                x_speed += 10
 
             #Shot code for shots
             if event.key == pygame.K_SPACE and SHOT == False:
@@ -160,27 +165,27 @@ while not done:
     x_coord += x_speed
     y_coord += y_speed
 
-    #shot
+    #shot1
     if SHOT == False:
         shot_y_coord += y_speed
         shot_x_coord += x_speed
     elif SHOT == True:
-        shot_y_coord += shot_y_speed
+        shot_y_coord += shot1.y_speed
     if shot_y_coord <= 0:
         SHOT = False
         shot_y_coord = y_coord
         shot_x_coord = x_coord
-    #shot1
+    #shot2
     if SHOT1 == False:
         shot_y1_coord += y_speed
         shot_x1_coord += x_speed
     elif SHOT1 == True:
-        shot_y1_coord += shot_y1_speed
+        shot_y1_coord += shot_y1_spe
     if shot_y1_coord <= 0:
         SHOT1 = False
         shot_y1_coord = y_coord
         shot_x1_coord = x_coord
-    #shot2
+    #shot3
     if SHOT2 == False:
         shot_y2_coord += y_speed
         shot_x2_coord += x_speed
@@ -190,7 +195,7 @@ while not done:
         SHOT2 = False
         shot_y2_coord = y_coord
         shot_x2_coord = x_coord
-    #shot3
+    #shot4
     if SHOT3 == False:
         shot_y3_coord += y_speed
         shot_x3_coord += x_speed
@@ -200,7 +205,7 @@ while not done:
         SHOT3 = False
         shot_y3_coord = y_coord
         shot_x3_coord = x_coord
-    #shot4
+    #shot5
     if SHOT4 == False:
         shot_y4_coord += y_speed
         shot_x4_coord += x_speed
@@ -277,11 +282,11 @@ while not done:
     # --- Drawing code should go here
     screen.fill(WHITE)
 
-    shooting_motion(screen, shot_x_coord+23, shot_y_coord-5)
-    shooting_motion1(screen, shot_x1_coord+23, shot_y1_coord-5)
-    shooting_motion2(screen, shot_x2_coord+23, shot_y2_coord-5)
-    shooting_motion3(screen, shot_x3_coord+23, shot_y3_coord-5)
-    shooting_motion4(screen, shot_x4_coord+23, shot_y4_coord-5)
+    shooting_motion(screen, shot1.shot_x_coord+23, shot1.shot_y_coord-5)
+    shooting_motion(screen, shot2.shot_x_coord+23, shot2.shot_y_coord-5)
+    shooting_motion(screen, shot3.shot_x_coord+23, shot3.shot_y_coord-5)
+    shooting_motion(screen, shot4.shot_x_coord+23, shot4.shot_y_coord-5)
+    shooting_motion(screen, shot5.shot_x_coord+23, shot5.shot_y_coord-5)
 
 
     screen.blit(duck_shooter, [x_coord, y_coord])

@@ -30,7 +30,7 @@ programmed the shots to respawn at the position of the duck once they go off scr
 Week 5 (1/9-1/15)
 This week I made a lot of progress with the shot motion in my game. I set up separate functions for each
 of my five shots. I also read through chapter 12 and learned about classes. I am not completely done copying
-my game and adding classes, but I am a good way through. 
+my game and adding classes, but I am a good way through.
 
 Week 6 (1/16-1/22)
 
