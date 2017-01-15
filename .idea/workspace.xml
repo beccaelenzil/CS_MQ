@@ -23,7 +23,7 @@
       <file leaf-file-name="CamelGame.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/CamelGame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
+            <state relative-caret-position="640">
               <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
               <folding />
             </state>
@@ -33,7 +33,7 @@
       <file leaf-file-name="log.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/log.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="640">
               <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
               <folding />
             </state>
@@ -43,8 +43,8 @@
       <file leaf-file-name="DuckGameRoughClassCopy.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRoughClassCopy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+            <state relative-caret-position="-1881">
+              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -161,7 +161,7 @@
       <recent name="C:\Users\Matt\Documents\GitHub\CS_MQ\ScoringTheGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.DuckGameRough">
+  <component name="RunManager" selected="Python.DuckGameRoughClassCopy">
     <configuration default="false" name="CamelGame" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -175,23 +175,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CS_MQ" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/CamelGame.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="chapter11tutorial" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ScoringTheGame" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CS_MQ" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/chapter11tutorial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -243,6 +226,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CS_MQ" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="DuckGameRoughClassCopy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ScoringTheGame" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CS_MQ" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/DuckGameRoughClassCopy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -396,18 +396,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.CamelGame" />
-      <item index="1" class="java.lang.String" itemvalue="Python.chapter11tutorial" />
-      <item index="2" class="java.lang.String" itemvalue="Python.chapter8tutorial" />
-      <item index="3" class="java.lang.String" itemvalue="Python.chapter10tutorial" />
-      <item index="4" class="java.lang.String" itemvalue="Python.DuckGameRough" />
+      <item index="1" class="java.lang.String" itemvalue="Python.chapter8tutorial" />
+      <item index="2" class="java.lang.String" itemvalue="Python.chapter10tutorial" />
+      <item index="3" class="java.lang.String" itemvalue="Python.DuckGameRough" />
+      <item index="4" class="java.lang.String" itemvalue="Python.DuckGameRoughClassCopy" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.DuckGameRough" />
-        <item index="1" class="java.lang.String" itemvalue="Python.chapter10tutorial" />
-        <item index="2" class="java.lang.String" itemvalue="Python.CamelGame" />
-        <item index="3" class="java.lang.String" itemvalue="Python.chapter8tutorial" />
-        <item index="4" class="java.lang.String" itemvalue="Python.chapter11tutorial" />
+        <item index="0" class="java.lang.String" itemvalue="Python.DuckGameRoughClassCopy" />
+        <item index="1" class="java.lang.String" itemvalue="Python.DuckGameRough" />
+        <item index="2" class="java.lang.String" itemvalue="Python.chapter10tutorial" />
+        <item index="3" class="java.lang.String" itemvalue="Python.CamelGame" />
+        <item index="4" class="java.lang.String" itemvalue="Python.chapter8tutorial" />
       </list>
     </recent_temporary>
   </component>
@@ -647,7 +647,7 @@
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/daffy_duck_duck_drawing_dissatisfied_90760_1920x1200.jpg" />
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/CamelGame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
+        <state relative-caret-position="640">
           <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
           <folding />
         </state>
@@ -659,7 +659,7 @@
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter5tutorial.py" />
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/log.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="640">
           <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
           <folding />
         </state>
@@ -675,8 +675,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRoughClassCopy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+        <state relative-caret-position="-1881">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
           <folding />
         </state>
       </provider>
