@@ -14,9 +14,9 @@ pygame.init()
 size = (1000, 650)
 screen = pygame.display.set_mode(size)
 
-background_duck = pygame.image.load("Daffy_Duck.png").convert()
+background_duck = pygame.image.load("DuckGameImages/Daffy_Duck.png").convert()
 
-player_image = pygame.image.load("Donald-duck.png").convert()
+player_image = pygame.image.load("DuckGameImages/Donald-duck.png").convert()
 
 player_image.set_colorkey(RED)
 

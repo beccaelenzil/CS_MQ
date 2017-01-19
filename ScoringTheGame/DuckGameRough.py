@@ -30,6 +30,8 @@ title_text.set_colorkey(WHITE)
 duck_shooter = pygame.image.load("DuckGameImages/duckShooter.png").convert()
 duck_shooter.set_colorkey(RED)
 
+shoot_sound = pygame.mixer.Sound("DuckGameSoundEffects/laser5.ogg")
+
 # Speed in pixels per frame
 x_speed = 0
 y_speed = 0
@@ -101,30 +103,35 @@ while not done:
             #Shot code for shots
             if event.key == pygame.K_SPACE and SHOT == False:
                 SHOT = True
+                shoot_sound.play()
                 if shot_y_speed > -10:
                     shot_y_speed += -10
                 else:
                     shot_y_speed = -10
             elif event.key == pygame.K_SPACE and SHOT1 == False:
                 SHOT1 = True
+                shoot_sound.play()
                 if shot_y1_speed > -10:
                     shot_y1_speed += -10
                 else:
                     shot_y1_speed = -10
             elif event.key == pygame.K_SPACE and SHOT2 == False:
                 SHOT2 = True
+                shoot_sound.play()
                 if shot_y2_speed > -10:
                     shot_y2_speed += -10
                 else:
                     shot_y2_speed = -10
             elif event.key == pygame.K_SPACE and SHOT3 == False:
                 SHOT3 = True
+                shoot_sound.play()
                 if shot_y3_speed > -10:
                     shot_y3_speed += -10
                 else:
                     shot_y3_speed = -10
             elif event.key == pygame.K_SPACE and SHOT4 == False:
                 SHOT4 = True
+                shoot_sound.play()
                 if shot_y4_speed > -10:
                     shot_y4_speed += -10
                 else:
