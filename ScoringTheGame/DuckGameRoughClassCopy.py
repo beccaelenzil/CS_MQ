@@ -39,22 +39,22 @@ class duck():
         self.y_coord = 560
         self.x_speed = 0
         self.y_speed = 0
-    def move(self):
-        if event.type == pygame.KEYDOWN:
+    def duck_move(self):
+        if event.type == pygame.KEYDOWN  and -11< self.x_speed < 11:
             # If it is an arrow key, reset vector back to zero
             if event.key == pygame.K_LEFT and self.x_coord >= 0:
                 if self.x_speed != -10:
                     self.x_speed += -10
-                    print self.x_speed
             if event.key == pygame.K_RIGHT and self.x_coord <= 990:
                 if self.x_speed != 10:
                     self.x_speed += 10
-                    print self.x_speed
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
-                self.x_speed += 10
+                if self.x_speed == -10:
+                    self.x_speed += 10
             if event.key == pygame.K_RIGHT:
-                self.x_speed += -10
+                if self.x_speed == 10:
+                    self.x_speed += -10
         if self.x_coord < 0:
             self.x_coord = 0
         if self.x_coord > 940:
@@ -74,6 +74,10 @@ class shot():
         self.shot_y_coord = 560
         self.y_speed = 0
         self.SHOT = False
+    def shot_moving(self):
+        if self.SHOT == False:
+            self.shot_x_coord = daffy.x_coord
+            self.shot_y_coord = daffy.y_coord
     def shooting(self):
         if event.key == pygame.K_SPACE:
             self.SHOT = True
@@ -118,9 +122,15 @@ while not done:
     # --- Game logic should go here
 
 
-    daffy.move()
+    daffy.duck_move()
+    shot1.shot_moving()
+    shot2.shot_moving()
+    shot3.shot_moving()
+    shot4.shot_moving()
+    shot5.shot_moving()
+    shot1.shooting()
 
-    #print daffy.x_coord, daffy.y_coord
+    print daffy.x_coord, daffy.y_coord
 
     # --- Drawing code should go here
     screen.fill(WHITE)
