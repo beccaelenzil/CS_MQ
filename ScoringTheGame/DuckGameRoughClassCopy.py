@@ -1,5 +1,7 @@
 
 import pygame
+import random
+import time
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -10,12 +12,15 @@ ORANGE = (255, 255, 0)
 
 PI = 3.141592653
 
+initial_second_count = time.time()
+
 pygame.init()
 
 size = (1000, 650)
 screen = pygame.display.set_mode(size)
 
 done = False
+
 
 clock = pygame.time.Clock()
 
@@ -30,7 +35,8 @@ title_text.set_colorkey(WHITE)
 duck_shooter = pygame.image.load("DuckGameImages/duckShooter.png").convert()
 duck_shooter.set_colorkey(RED)
 
-
+#duck shooter enemy image
+duck_hunter_enemy = pygame.image.load("DuckGameImages/duck_hunter.png").convert()
 
 
 class duck():
@@ -68,11 +74,28 @@ class duck():
 daffy = duck()
 
 
-class shot():
+class basic_enemy():
+    def __init__(self):
+        self.x_coord = 460
+        self.y_coord = 60
+        self.x_speed = random.randint(-7,-1) or random.randint(1,7)
+        self.y_speed = 0
+    def enemy_move(self):
+        if self.x_coord < 5:
+            self.x_speed = random.randint(3,8)
+        elif self.x_coord > 950:
+            self.x_speed = random.randint(-8,-3)
+        self.x_coord += self.x_speed
+        self.y_coord += self.y_speed
+
+enemy1 = basic_enemy()
+
+
+class duck_shot():
     def __init__(self):
         self.shot_x_coord = 460
         self.shot_y_coord = 560
-        self.y_speed = 0
+        self.shot_y_speed = 0
         self.SHOT = False
     def shot_moving(self):
         if self.SHOT == False:
@@ -89,17 +112,17 @@ class shot():
                 self.shot_y_coord += daffy.y_speed
                 self.shot_x_coord += daffy.x_speed
             elif self.SHOT == True:
-                self.shot_y_coord += shot1.y_speed
+                self.shot_y_coord += self.shot_y_speed
             if self.shot_y_coord <= 0:
                 self.SHOT = False
                 self.shot_y_coord = daffy.y_coord
                 self.shot_x_coord = daffy.x_coord
 
-shot1 = shot()
-shot2 = shot()
-shot3 = shot()
-shot4 = shot()
-shot5 = shot()
+shot1 = duck_shot()
+shot2 = duck_shot()
+shot3 = duck_shot()
+shot4 = duck_shot()
+shot5 = duck_shot()
 
 
 
@@ -112,6 +135,9 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
 
+    #time methods
+    second_count = abs(initial_second_count - time.time())
+    print second_count
 
     #defining the ball that shoots
     def shooting_motion(screen, x, y, color):
@@ -121,14 +147,14 @@ while not done:
 
     # --- Game logic should go here
 
-
     daffy.duck_move()
     shot1.shot_moving()
     shot2.shot_moving()
     shot3.shot_moving()
     shot4.shot_moving()
     shot5.shot_moving()
-    shot1.shooting()
+
+    enemy1.enemy_move()
 
     print daffy.x_coord, daffy.y_coord
 
@@ -144,7 +170,13 @@ while not done:
 
     screen.blit(duck_shooter, [daffy.x_coord, daffy.y_coord])
 
-    screen.blit(title_text, [170, 5])
+    if second_count > 7:
+        screen.blit(duck_hunter_enemy, [enemy1.x_coord, enemy1.y_coord])
+
+    if second_count < 5:
+        screen.blit(title_text, [170, 5])
+
+
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
 
