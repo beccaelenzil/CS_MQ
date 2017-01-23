@@ -37,6 +37,7 @@ duck_shooter.set_colorkey(RED)
 
 #duck shooter enemy image
 duck_hunter_enemy = pygame.image.load("DuckGameImages/duck_hunter.png").convert()
+duck_hunter_enemy.set_colorkey(WHITE)
 
 
 class duck():
@@ -102,21 +103,18 @@ class duck_shot():
             self.shot_x_coord = daffy.x_coord
             self.shot_y_coord = daffy.y_coord
     def shooting(self):
-        if event.key == pygame.K_SPACE:
-            self.SHOT = True
-            if self.shot_y_speed > -10:
-                self.shot_y_speed += -10
-            else:
-                self.shot_y_speed = -10
-            if self.SHOT == False:
-                self.shot_y_coord += daffy.y_speed
-                self.shot_x_coord += daffy.x_speed
-            elif self.SHOT == True:
-                self.shot_y_coord += self.shot_y_speed
-            if self.shot_y_coord <= 0:
-                self.SHOT = False
-                self.shot_y_coord = daffy.y_coord
-                self.shot_x_coord = daffy.x_coord
+        self.SHOT = True
+        if self.SHOT == True:
+            self.shot_y_coord += -10
+        if self.SHOT == False:
+            self.shot_y_coord += daffy.y_speed
+            self.shot_x_coord += daffy.x_speed
+        elif self.SHOT == True:
+            self.shot_y_coord += self.shot_y_speed
+        if self.shot_y_coord <= 0:
+            self.SHOT = False
+            self.shot_y_coord = daffy.y_coord
+            self.shot_x_coord = daffy.x_coord
 
 shot1 = duck_shot()
 shot2 = duck_shot()
@@ -153,6 +151,11 @@ while not done:
     shot3.shot_moving()
     shot4.shot_moving()
     shot5.shot_moving()
+
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_SPACE:
+            shot1.shooting()
+
 
     enemy1.enemy_move()
 
