@@ -167,7 +167,7 @@ while not done:
             if event.key == pygame.K_SPACE and shot1.SHOT == False:
                 shot1.SHOT = True
                 shot_count += -1
-                
+
             if event.key == pygame.K_SPACE and shot1.SHOT == True:
                 shot2.SHOT = True
                 shot_count += -1
@@ -227,6 +227,10 @@ while not done:
     if second_count > second_count_limit:
         shot_count += 4
         second_count_limit += 4
+
+    font = pygame.font.SysFont('Calibri', 25, True, False)
+    shot_count_text = font.render("Shot count: " + str(shot_count),True,BLACK)
+    screen.blit(shot_count_text, [830,5])
 
     print "SHOT COUNT =" + str(shot_count)
     # --- Go ahead and update the screen with what we've drawn.
