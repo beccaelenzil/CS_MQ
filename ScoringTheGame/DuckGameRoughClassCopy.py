@@ -21,6 +21,8 @@ screen = pygame.display.set_mode(size)
 
 done = False
 
+shot_count = 4
+second_count_limit = 4
 
 clock = pygame.time.Clock()
 
@@ -103,7 +105,6 @@ class duck_shot():
             self.shot_x_coord = daffy.x_coord
             self.shot_y_coord = daffy.y_coord
     def shooting(self):
-        self.SHOT = True
         if self.SHOT == True:
             self.shot_y_coord += -10
         if self.SHOT == False:
@@ -144,20 +145,64 @@ while not done:
 
 
     # --- Game logic should go here
+    if second_count > 1:
+        daffy.duck_move()
 
-    daffy.duck_move()
-    shot1.shot_moving()
-    shot2.shot_moving()
-    shot3.shot_moving()
-    shot4.shot_moving()
-    shot5.shot_moving()
+        shot1.shot_moving()
+        shot2.shot_moving()
+        shot3.shot_moving()
+        shot4.shot_moving()
+        shot5.shot_moving()
 
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_SPACE:
+        """
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE and shot1.SHOT == False:
+                shot1.SHOT = True
+            elif event.key == pygame.K_SPACE and shot1.SHOT == True:
+                shot2.SHOT = True
+        """
+
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE and shot1.SHOT == False:
+                shot1.SHOT = True
+                shot_count += -1
+                
+            if event.key == pygame.K_SPACE and shot1.SHOT == True:
+                shot2.SHOT = True
+                shot_count += -1
+        shot1.shooting()
+        shot2.shooting()
+        shot3.shooting()
+
+        """
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE and shot1.SHOT == True:
+                shot2.SHOT = True
+        shot2.shooting()
+        """
+
+        """
+        if shot1.SHOT == False:
             shot1.shooting()
+        if shot1.SHOT == True:
+            shot2.shooting()
+        if shot2.SHOT == True:
+            shot3.shooting()
 
+        shot2.shot_moving()
+        shot2.shooting()
 
-    enemy1.enemy_move()
+        shot3.shot_moving()
+        shot3.shooting()
+
+        shot4.shot_moving()
+        shot4.shooting()
+
+        shot5.shot_moving()
+        shot5.shooting()
+        """
+        enemy1.enemy_move()
 
     print daffy.x_coord, daffy.y_coord
 
@@ -179,7 +224,11 @@ while not done:
     if second_count < 5:
         screen.blit(title_text, [170, 5])
 
+    if second_count > second_count_limit:
+        shot_count += 4
+        second_count_limit += 4
 
+    print "SHOT COUNT =" + str(shot_count)
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
 
