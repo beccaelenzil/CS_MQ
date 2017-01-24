@@ -24,6 +24,8 @@ done = False
 shot_count = 4
 second_count_limit = 4
 
+hit_count = 0
+
 clock = pygame.time.Clock()
 
 pygame.mouse.set_visible(False)
@@ -40,6 +42,9 @@ duck_shooter.set_colorkey(RED)
 #duck shooter enemy image
 duck_hunter_enemy = pygame.image.load("DuckGameImages/duck_hunter.png").convert()
 duck_hunter_enemy.set_colorkey(WHITE)
+
+#hit sound temporary
+hit_sound = pygame.mixer.Sound("DuckGameSoundEffects/laser5.ogg")
 
 
 class duck():
@@ -100,13 +105,15 @@ class duck_shot():
         self.shot_y_coord = 560
         self.shot_y_speed = 0
         self.SHOT = False
+        self.OKAY = False
+        self.hit_count = 0
     def shot_moving(self):
         if self.SHOT == False:
             self.shot_x_coord = daffy.x_coord
             self.shot_y_coord = daffy.y_coord
     def shooting(self):
         if self.SHOT == True:
-            self.shot_y_coord += -10
+            self.shot_y_coord += -20
         if self.SHOT == False:
             self.shot_y_coord += daffy.y_speed
             self.shot_x_coord += daffy.x_speed
@@ -114,8 +121,14 @@ class duck_shot():
             self.shot_y_coord += self.shot_y_speed
         if self.shot_y_coord <= 0:
             self.SHOT = False
+            self.OKAY = False
             self.shot_y_coord = daffy.y_coord
             self.shot_x_coord = daffy.x_coord
+        if self.shot_y_coord == 60 and self.shot_x_coord in range(enemy1.x_coord-30, enemy1.x_coord+25):
+            hit_sound.play()
+            self.hit_count += 1
+
+
 
 shot1 = duck_shot()
 shot2 = duck_shot()
@@ -162,50 +175,61 @@ while not done:
                 shot2.SHOT = True
         """
 
+    if shot1.shot_y_coord == 540 or shot2.shot_y_coord == 540 or shot3.shot_y_coord == 540:
+        shot_count += -1
 
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE and shot1.SHOT == False:
-                shot1.SHOT = True
-                shot_count += -1
+    hit_count = shot1.hit_count + shot2.hit_count + shot3.hit_count
 
-            if event.key == pygame.K_SPACE and shot1.SHOT == True:
-                shot2.SHOT = True
-                shot_count += -1
+    if event.type == pygame.KEYDOWN and shot_count > 0:
+        if event.key == pygame.K_SPACE and shot1.SHOT == False:
+            shot1.SHOT = True
+        if event.key == pygame.K_SPACE and shot1.OKAY == True:
+            shot2.SHOT = True
+        if event.key == pygame.K_SPACE and shot2.OKAY == True:
+            shot3.SHOT = True
+
+    if event.type == pygame.KEYUP:
+        if event.key == pygame.K_SPACE and shot1.SHOT == True:
+            shot1.OKAY = True
+        if event.key == pygame.K_SPACE and shot2.SHOT == True:
+            shot2.OKAY = True
+
+    shot1.shooting()
+    shot2.shooting()
+    shot3.shooting()
+
+    """
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_SPACE and shot1.SHOT == True:
+            shot2.SHOT = True
+    shot2.shooting()
+    """
+
+    """
+    if shot1.SHOT == False:
         shot1.shooting()
+    if shot1.SHOT == True:
         shot2.shooting()
+    if shot2.SHOT == True:
         shot3.shooting()
 
-        """
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE and shot1.SHOT == True:
-                shot2.SHOT = True
-        shot2.shooting()
-        """
+    shot2.shot_moving()
+    shot2.shooting()
 
-        """
-        if shot1.SHOT == False:
-            shot1.shooting()
-        if shot1.SHOT == True:
-            shot2.shooting()
-        if shot2.SHOT == True:
-            shot3.shooting()
+    shot3.shot_moving()
+    shot3.shooting()
 
-        shot2.shot_moving()
-        shot2.shooting()
+    shot4.shot_moving()
+    shot4.shooting()
 
-        shot3.shot_moving()
-        shot3.shooting()
-
-        shot4.shot_moving()
-        shot4.shooting()
-
-        shot5.shot_moving()
-        shot5.shooting()
-        """
-        enemy1.enemy_move()
+    shot5.shot_moving()
+    shot5.shooting()
+    """
+    enemy1.enemy_move()
 
     print daffy.x_coord, daffy.y_coord
 
+    print shot1.shot_y_coord
     # --- Drawing code should go here
     screen.fill(WHITE)
 
@@ -229,9 +253,16 @@ while not done:
         second_count_limit += 4
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
+    font2 = pygame.font.SysFont('Calibri', 40, True, False)
     shot_count_text = font.render("Shot count: " + str(shot_count),True,BLACK)
+    hit_count_text = font.render("Hit count: " + str(hit_count),True,BLACK)
+    minute_count_text = font2.render(str(round((30-second_count),1)),True,BLACK)
     screen.blit(shot_count_text, [830,5])
+    screen.blit(hit_count_text, [20, 5])
+    screen.blit(minute_count_text, [475,5])
 
+    if second_count == 30:
+        done = True
     print "SHOT COUNT =" + str(shot_count)
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
