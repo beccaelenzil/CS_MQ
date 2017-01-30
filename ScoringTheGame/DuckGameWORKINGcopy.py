@@ -110,9 +110,9 @@ class Bullet(pygame.sprite.Sprite):
 
         self.rect = self.image.get_rect()
     def update(self):
-        self.rect.y += -5
+        self.rect.y += -15
 
-
+"""
 class duck_shot(pygame.sprite.Sprite):
     def __init__(self):
         super(duck_shot, self).__init__()
@@ -143,13 +143,12 @@ class duck_shot(pygame.sprite.Sprite):
             hit_sound.play()
             self.hit_count += 1
 
-
-
 shot1 = duck_shot()
 shot2 = duck_shot()
 shot3 = duck_shot()
 shot4 = duck_shot()
 shot5 = duck_shot()
+"""
 
 all_sprites_list = pygame.sprite.Group()
 bullet_list = pygame.sprite.Group()
@@ -178,11 +177,7 @@ while not done:
     if second_count > 1:
         daffy.duck_move()
 
-        shot1.shot_moving()
-        shot2.shot_moving()
-        shot3.shot_moving()
-        shot4.shot_moving()
-        shot5.shot_moving()
+
 
         """
         if event.type == pygame.KEYDOWN:
@@ -192,39 +187,30 @@ while not done:
                 shot2.SHOT = True
         """
 
-    if shot1.shot_y_coord == 460 or shot2.shot_y_coord == 460 or shot3.shot_y_coord == 460:
-        shot_count += -1
 
-    hit_count = shot1.hit_count + shot2.hit_count + shot3.hit_count
 
     if event.type == pygame.KEYDOWN and shot_count > 0:
-        bullet = Bullet()
-        bullet.rect.x = daffy.x_coord
-        bullet.rect.y = daffy.y_coord
-        all_sprites_list.add(bullet)
-        bullet_list.add(bullet)
+        if event.key == pygame.K_SPACE:
+            bullet = Bullet()
+            bullet.rect.x = daffy.x_coord + 32
+            bullet.rect.y = daffy.y_coord
+            all_sprites_list.add(bullet)
+            bullet_list.add(bullet)
 
-        if event.key == pygame.K_SPACE and shot1.SHOT == False:
-            shot1.SHOT = True
-        if event.key == pygame.K_SPACE and shot1.OKAY == True:
-            shot2.SHOT = True
-        if event.key == pygame.K_SPACE and shot2.OKAY == True:
-            shot3.SHOT = True
 
-    if event.type == pygame.KEYUP:
-        if event.key == pygame.K_SPACE and shot1.SHOT == True:
-            shot1.OKAY = True
-        if event.key == pygame.K_SPACE and shot2.SHOT == True:
-            shot2.OKAY = True
+
+
 
     minute_count = 37-second_count
 
     all_sprites_list.update()
 
-    if minute_count > 0:
-        shot1.shooting()
-        shot2.shooting()
-        shot3.shooting()
+    for bullet in bullet_list:
+
+        if bullet.rect.y < -10:
+            bullet_list.remove(bullet)
+            all_sprites_list.remove(bullet)
+
 
     """
     if event.type == pygame.KEYDOWN:
@@ -257,18 +243,12 @@ while not done:
 
     print daffy.x_coord, daffy.y_coord
 
-    print shot1.shot_y_coord
+
     # --- Drawing code should go here
     screen.fill(WHITE)
 
     all_sprites_list.draw(screen)
 
-
-    shooting_motion(screen, shot1.shot_x_coord+23, shot1.shot_y_coord-5, BLUE)
-    shooting_motion(screen, shot2.shot_x_coord+23, shot2.shot_y_coord-5, RED)
-    shooting_motion(screen, shot3.shot_x_coord+23, shot3.shot_y_coord-5, BLACK)
-    shooting_motion(screen, shot4.shot_x_coord+23, shot4.shot_y_coord-5, ORANGE)
-    shooting_motion(screen, shot5.shot_x_coord+23, shot5.shot_y_coord-5, GREEN)
 
 
     screen.blit(duck_shooter, [daffy.x_coord, daffy.y_coord])
