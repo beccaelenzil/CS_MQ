@@ -30,6 +30,10 @@ clock = pygame.time.Clock()
 
 pygame.mouse.set_visible(False)
 
+all_sprites_list = pygame.sprite.Group()
+bullet_list = pygame.sprite.Group()
+enemy_list = pygame.sprite.Group()
+
 #title import
 title_text = pygame.image.load("DuckGameImages/PondDefendersTitle.png").convert()
 title_text.set_colorkey(WHITE)
@@ -50,11 +54,13 @@ hit_sound = pygame.mixer.Sound("DuckGameSoundEffects/laser5.ogg")
 class duck(pygame.sprite.Sprite):
     def __init__(self):
         super(duck, self).__init__()
+        self.image = duck_shooter
+        self.rect = self.image.get_rect()
         self.x_coord = 460
         self.y_coord = 560
         self.x_speed = 0
         self.y_speed = 0
-    def duck_move(self):
+    def update(self):
         if event.type == pygame.KEYDOWN  and -11< self.x_speed < 11:
             # If it is an arrow key, reset vector back to zero
             if event.key == pygame.K_LEFT and self.x_coord >= 0:
@@ -81,77 +87,45 @@ class duck(pygame.sprite.Sprite):
         self.y_coord += self.y_speed
 
 daffy = duck()
+all_sprites_list.add(daffy)
 
-
-class basic_enemy(pygame.sprite.Sprite):
+class Basic_enemy(pygame.sprite.Sprite):
     def __init__(self):
-        super(basic_enemy, self).__init__()
+        super(Basic_enemy, self).__init__()
+        self.image = duck_hunter_enemy
+        self.rect = self.image.get_rect()
         self.x_coord = 460
         self.y_coord = 60
         self.x_speed = random.randint(-7,-1) or random.randint(1,7)
         self.y_speed = 0
-    def enemy_move(self):
-        if self.x_coord < 5:
+    def update(self):
+        if self.rect.x < 5:
             self.x_speed = random.randint(3,8)
-        elif self.x_coord > 950:
+        elif self.rect.y > 950:
             self.x_speed = random.randint(-8,-3)
-        self.x_coord += self.x_speed
-        self.y_coord += self.y_speed
+        self.rect.x += self.x_speed
+        self.rect.y += self.y_speed
 
-enemy1 = basic_enemy()
+#enemy1 = Basic_enemy()
+#all_sprites_list.add(enemy1)
+#enemy_list.add(enemy1)
+
 
 
 class Bullet(pygame.sprite.Sprite):
     def __init__(self):
         super(Bullet,self).__init__()
 
-        self.image = pygame.Surface([6,15])
+        self.image = pygame.Surface([10,20])
         self.image.fill(RED)
 
         self.rect = self.image.get_rect()
     def update(self):
         self.rect.y += -15
 
-"""
-class duck_shot(pygame.sprite.Sprite):
-    def __init__(self):
-        super(duck_shot, self).__init__()
-        self.shot_x_coord = 460
-        self.shot_y_coord = 560
-        self.shot_y_speed = 0
-        self.SHOT = False
-        self.OKAY = False
-        self.hit_count = 0
-    def shot_moving(self):
-        if self.SHOT == False:
-            self.shot_x_coord = daffy.x_coord
-            self.shot_y_coord = daffy.y_coord
-    def shooting(self):
-        if self.SHOT == True:
-            self.shot_y_coord += -25
-        if self.SHOT == False:
-            self.shot_y_coord += daffy.y_speed
-            self.shot_x_coord += daffy.x_speed
-        elif self.SHOT == True:
-            self.shot_y_coord += self.shot_y_speed
-        if self.shot_y_coord <= 0:
-            self.SHOT = False
-            self.OKAY = False
-            self.shot_y_coord = daffy.y_coord
-            self.shot_x_coord = daffy.x_coord
-        if self.shot_y_coord == 60 and self.shot_x_coord in range(enemy1.x_coord-35, enemy1.x_coord+30):
-            hit_sound.play()
-            self.hit_count += 1
+SHOT = False
 
-shot1 = duck_shot()
-shot2 = duck_shot()
-shot3 = duck_shot()
-shot4 = duck_shot()
-shot5 = duck_shot()
-"""
 
-all_sprites_list = pygame.sprite.Group()
-bullet_list = pygame.sprite.Group()
 
 
 # -------- Main Program Loop -----------
@@ -174,36 +148,39 @@ while not done:
 
 
     # --- Game logic should go here
-    if second_count > 1:
-        daffy.duck_move()
-
-
-
-        """
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE and shot1.SHOT == False:
-                shot1.SHOT = True
-            elif event.key == pygame.K_SPACE and shot1.SHOT == True:
-                shot2.SHOT = True
-        """
 
 
 
     if event.type == pygame.KEYDOWN and shot_count > 0:
-        if event.key == pygame.K_SPACE:
+        if event.key == pygame.K_SPACE and SHOT == False:
             bullet = Bullet()
+            SHOT = True
+            shot_count += -1
             bullet.rect.x = daffy.x_coord + 32
             bullet.rect.y = daffy.y_coord
             all_sprites_list.add(bullet)
             bullet_list.add(bullet)
+    elif event.type == pygame.KEYUP:
+        if event.key == pygame.K_SPACE:
+            SHOT = False
 
+    #spawn enemies
 
+    if second_count%5 == 0:
+        basic_enemy = Basic_enemy()
+        basic_enemy.rect.x = random.randrange(1000)
+        basic_enemy.rect.y = random.randint(50,100)
+        all_sprites_list.add(basic_enemy)
+        enemy_list.add(basic_enemy)
 
-
+    if second_count%5 == 0:
+        print "ENEMY!!!!"
 
     minute_count = 37-second_count
 
+
     all_sprites_list.update()
+
 
     for bullet in bullet_list:
 
@@ -212,34 +189,7 @@ while not done:
             all_sprites_list.remove(bullet)
 
 
-    """
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_SPACE and shot1.SHOT == True:
-            shot2.SHOT = True
-    shot2.shooting()
-    """
 
-    """
-    if shot1.SHOT == False:
-        shot1.shooting()
-    if shot1.SHOT == True:
-        shot2.shooting()
-    if shot2.SHOT == True:
-        shot3.shooting()
-
-    shot2.shot_moving()
-    shot2.shooting()
-
-    shot3.shot_moving()
-    shot3.shooting()
-
-    shot4.shot_moving()
-    shot4.shooting()
-
-    shot5.shot_moving()
-    shot5.shooting()
-    """
-    enemy1.enemy_move()
 
     print daffy.x_coord, daffy.y_coord
 
@@ -253,8 +203,8 @@ while not done:
 
     screen.blit(duck_shooter, [daffy.x_coord, daffy.y_coord])
 
-    if second_count > 7:
-        screen.blit(duck_hunter_enemy, [enemy1.x_coord, enemy1.y_coord])
+    #screen.blit(duck_hunter_enemy, [enemy1.x_coord, enemy1.y_coord])
+
 
     if second_count < 5:
         screen.blit(title_text, [170, 5])
