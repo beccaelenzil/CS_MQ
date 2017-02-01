@@ -31,8 +31,9 @@ clock = pygame.time.Clock()
 pygame.mouse.set_visible(False)
 
 all_sprites_list = pygame.sprite.Group()
-bullet_list = pygame.sprite.Group()
+duck_bullet_list = pygame.sprite.Group()
 enemy_list = pygame.sprite.Group()
+
 
 #title import
 title_text = pygame.image.load("DuckGameImages/PondDefendersTitle.png").convert()
@@ -98,30 +99,30 @@ class Basic_enemy(pygame.sprite.Sprite):
         self.y_coord = 60
         self.x_speed = random.randint(-7,-1) or random.randint(1,7)
         self.y_speed = 0
+        self.LIVES = 2
     def update(self):
         if self.rect.x < 5:
             self.x_speed = random.randint(3,8)
-        elif self.rect.y > 950:
+        elif self.rect.x > 950:
             self.x_speed = random.randint(-8,-3)
         self.rect.x += self.x_speed
         self.rect.y += self.y_speed
 
-#enemy1 = Basic_enemy()
-#all_sprites_list.add(enemy1)
-#enemy_list.add(enemy1)
 
 
 
-class Bullet(pygame.sprite.Sprite):
+
+
+class Duck_bullet(pygame.sprite.Sprite):
     def __init__(self):
-        super(Bullet,self).__init__()
+        super(Duck_bullet,self).__init__()
 
         self.image = pygame.Surface([10,20])
         self.image.fill(RED)
 
         self.rect = self.image.get_rect()
     def update(self):
-        self.rect.y += -15
+        self.rect.y += -20
 
 SHOT = False
 
@@ -153,27 +154,29 @@ while not done:
 
     if event.type == pygame.KEYDOWN and shot_count > 0:
         if event.key == pygame.K_SPACE and SHOT == False:
-            bullet = Bullet()
+            duck_bullet = Duck_bullet()
             SHOT = True
             shot_count += -1
-            bullet.rect.x = daffy.x_coord + 32
-            bullet.rect.y = daffy.y_coord
-            all_sprites_list.add(bullet)
-            bullet_list.add(bullet)
+            duck_bullet.rect.x = daffy.x_coord + 32
+            duck_bullet.rect.y = daffy.y_coord
+            all_sprites_list.add(duck_bullet)
+            duck_bullet_list.add(duck_bullet)
     elif event.type == pygame.KEYUP:
         if event.key == pygame.K_SPACE:
             SHOT = False
 
     #spawn enemies
 
-    if second_count%5 == 0:
+
+
+    if round(second_count, 1)% 5 == 0:
         basic_enemy = Basic_enemy()
         basic_enemy.rect.x = random.randrange(1000)
         basic_enemy.rect.y = random.randint(50,100)
         all_sprites_list.add(basic_enemy)
         enemy_list.add(basic_enemy)
 
-    if second_count%5 == 0:
+    if round(second_count,1)%5 == 0:
         print "ENEMY!!!!"
 
     minute_count = 37-second_count
@@ -182,11 +185,20 @@ while not done:
     all_sprites_list.update()
 
 
-    for bullet in bullet_list:
+    for bullet in duck_bullet_list:
+        enemy_hit_list = pygame.sprite.spritecollide(bullet, enemy_list, True)
+        
 
         if bullet.rect.y < -10:
-            bullet_list.remove(bullet)
+            duck_bullet_list.remove(bullet)
             all_sprites_list.remove(bullet)
+
+        for block in enemy_hit_list:
+            duck_bullet_list.remove(bullet)
+            all_sprites_list.remove(bullet)
+            hit_count += 1
+            hit_sound.play()
+            print(hit_count)
 
 
 
@@ -203,11 +215,10 @@ while not done:
 
     screen.blit(duck_shooter, [daffy.x_coord, daffy.y_coord])
 
-    #screen.blit(duck_hunter_enemy, [enemy1.x_coord, enemy1.y_coord])
 
 
     if second_count < 5:
-        screen.blit(title_text, [170, 5])
+        screen.blit(title_text, [170, 250])
 
     if second_count > second_count_limit:
         shot_count += 2
