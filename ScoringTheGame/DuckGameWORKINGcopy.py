@@ -33,6 +33,7 @@ pygame.mouse.set_visible(False)
 all_sprites_list = pygame.sprite.Group()
 duck_bullet_list = pygame.sprite.Group()
 enemy_list = pygame.sprite.Group()
+enemy_bullet_list = pygame.sprite.Group()
 
 
 #title import
@@ -77,41 +78,18 @@ class duck(pygame.sprite.Sprite):
             if event.key == pygame.K_RIGHT:
                 if self.x_speed == 10:
                     self.x_speed += -10
-        if self.x_coord < 0:
-            self.x_coord = 0
-        if self.x_coord > 940:
-            self.x_coord =940
-        if self.y_coord != 560:
-            self.y_coord = 560
+        if self.rect.x < 0:
+            self.rect.x = 0
+        if self.rect.x > 940:
+            self.rect.x =940
+        if self.rect.y != 560:
+            self.rect.y = 560
 
-        self.x_coord += self.x_speed
-        self.y_coord += self.y_speed
-
-daffy = duck()
-all_sprites_list.add(daffy)
-
-class Basic_enemy(pygame.sprite.Sprite):
-    def __init__(self):
-        super(Basic_enemy, self).__init__()
-        self.image = duck_hunter_enemy
-        self.rect = self.image.get_rect()
-        self.x_coord = 460
-        self.y_coord = 60
-        self.x_speed = random.randint(-7,-1) or random.randint(1,7)
-        self.y_speed = 0
-        self.LIVES = 2
-    def update(self):
-        if self.rect.x < 5:
-            self.x_speed = random.randint(3,8)
-        elif self.rect.x > 950:
-            self.x_speed = random.randint(-8,-3)
         self.rect.x += self.x_speed
         self.rect.y += self.y_speed
 
-
-
-
-
+daffy = duck()
+all_sprites_list.add(daffy)
 
 class Duck_bullet(pygame.sprite.Sprite):
     def __init__(self):
@@ -123,6 +101,45 @@ class Duck_bullet(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
     def update(self):
         self.rect.y += -20
+
+class Basic_enemy_bullet(pygame.sprite.Sprite):
+    def __init__(self):
+        super(Basic_enemy_bullet,self).__init__()
+
+        self.image = pygame.Surface([15,25])
+        self.image.fill(BLUE)
+
+        self.rect = self.image.get_rect()
+    def update(self):
+        self.rect.y += 10
+
+class Basic_enemy(pygame.sprite.Sprite):
+    def __init__(self):
+        super(Basic_enemy, self).__init__()
+        self.image = duck_hunter_enemy
+        self.rect = self.image.get_rect()
+        self.x_coord = 460
+        self.y_coord = 60
+        self.x_speed = random.randint(-7,7)
+        self.y_speed = 0
+        self.LIVES = 2
+
+    def update(self):
+        if self.x_speed == 0:
+            self.x_speed = 5
+        if self.rect.x < 5:
+            self.x_speed = random.randint(3,8)
+        elif self.rect.x > 950:
+            self.x_speed = random.randint(-8,-3)
+        self.rect.x += self.x_speed
+        self.rect.y += self.y_speed
+
+    def shot(self):
+        Basic_enemy_bullet()
+
+
+
+
 
 SHOT = False
 
@@ -157,24 +174,30 @@ while not done:
             duck_bullet = Duck_bullet()
             SHOT = True
             shot_count += -1
-            duck_bullet.rect.x = daffy.x_coord + 32
-            duck_bullet.rect.y = daffy.y_coord
+            duck_bullet.rect.x = daffy.rect.x + 32
+            duck_bullet.rect.y = daffy.rect.y
             all_sprites_list.add(duck_bullet)
             duck_bullet_list.add(duck_bullet)
     elif event.type == pygame.KEYUP:
         if event.key == pygame.K_SPACE:
             SHOT = False
 
+
     #spawn enemies
 
-
-
-    if round(second_count, 1)% 5 == 0:
+    if round(second_count, 2)% 5 == 0:
         basic_enemy = Basic_enemy()
+        basic_enemy_bullet = Basic_enemy_bullet()
+        basic_enemy_bullet.rect.x = basic_enemy.rect.x
+        basic_enemy_bullet.rect.y = basic_enemy.rect.y
+
         basic_enemy.rect.x = random.randrange(1000)
         basic_enemy.rect.y = random.randint(50,100)
         all_sprites_list.add(basic_enemy)
         enemy_list.add(basic_enemy)
+
+
+    #Enemy shooting (at duck)
 
     if round(second_count,1)%5 == 0:
         print "ENEMY!!!!"
@@ -187,7 +210,7 @@ while not done:
 
     for bullet in duck_bullet_list:
         enemy_hit_list = pygame.sprite.spritecollide(bullet, enemy_list, True)
-        
+
 
         if bullet.rect.y < -10:
             duck_bullet_list.remove(bullet)
@@ -211,9 +234,6 @@ while not done:
 
     all_sprites_list.draw(screen)
 
-
-
-    screen.blit(duck_shooter, [daffy.x_coord, daffy.y_coord])
 
 
 
