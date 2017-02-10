@@ -31,6 +31,7 @@ clock = pygame.time.Clock()
 pygame.mouse.set_visible(False)
 
 all_sprites_list = pygame.sprite.Group()
+duck_character_list = pygame.sprite.Group()
 duck_bullet_list = pygame.sprite.Group()
 enemy_list = pygame.sprite.Group()
 enemy_bullet_list = pygame.sprite.Group()
@@ -52,6 +53,8 @@ duck_hunter_enemy.set_colorkey(WHITE)
 #hit sound temporary
 hit_sound = pygame.mixer.Sound("DuckGameSoundEffects/laser5.ogg")
 
+#death screm
+death_scream = pygame.mixer.Sound("DuckGameSoundEffects/starwarsscrem.ogg")
 
 class duck(pygame.sprite.Sprite):
     def __init__(self):
@@ -90,6 +93,7 @@ class duck(pygame.sprite.Sprite):
 
 daffy = duck()
 all_sprites_list.add(daffy)
+duck_character_list.add(daffy)
 
 class Duck_bullet(pygame.sprite.Sprite):
     def __init__(self):
@@ -158,10 +162,6 @@ while not done:
     second_count = abs(initial_second_count - time.time())
     print second_count
 
-    #defining the ball that shoots
-    def shooting_motion(screen, x, y, color):
-        #Shot
-        pygame.draw.ellipse(screen, color, [1+x,y,20,20], 0)
 
 
 
@@ -183,18 +183,26 @@ while not done:
             SHOT = False
 
 
+
+
     #spawn enemies
 
-    if round(second_count, 2)% 5 == 0:
+    if round(second_count, 1)% 5 == 0:
         basic_enemy = Basic_enemy()
         basic_enemy_bullet = Basic_enemy_bullet()
-        basic_enemy_bullet.rect.x = basic_enemy.rect.x
-        basic_enemy_bullet.rect.y = basic_enemy.rect.y
 
         basic_enemy.rect.x = random.randrange(1000)
         basic_enemy.rect.y = random.randint(50,100)
+
+        basic_enemy_bullet.rect.x = basic_enemy.rect.x
+        basic_enemy_bullet.rect.y = basic_enemy.rect.y
+
+        all_sprites_list.add(basic_enemy_bullet)
+        enemy_bullet_list.add(basic_enemy_bullet)
+
         all_sprites_list.add(basic_enemy)
         enemy_list.add(basic_enemy)
+
 
 
     #Enemy shooting (at duck)
@@ -207,7 +215,7 @@ while not done:
 
     all_sprites_list.update()
 
-
+    #duck bullets
     for bullet in duck_bullet_list:
         enemy_hit_list = pygame.sprite.spritecollide(bullet, enemy_list, True)
 
@@ -223,7 +231,16 @@ while not done:
             hit_sound.play()
             print(hit_count)
 
+    #enemy bullets
+    for basic_enemy_bullet in enemy_bullet_list:
+        duck_hit_list = pygame.sprite.spritecollide(basic_enemy_bullet, duck_character_list, True)
 
+        if basic_enemy_bullet.rect.y > 600:
+            enemy_bullet_list.remove(basic_enemy_bullet)
+            all_sprites_list.remove(basic_enemy_bullet)
+
+        for daffy in duck_hit_list:
+            hit_sound.play()
 
 
     print daffy.x_coord, daffy.y_coord
