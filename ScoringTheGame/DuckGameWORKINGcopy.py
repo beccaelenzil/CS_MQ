@@ -99,7 +99,7 @@ class Duck_bullet(pygame.sprite.Sprite):
     def __init__(self):
         super(Duck_bullet,self).__init__()
 
-        self.image = pygame.Surface([10,20])
+        self.image = pygame.Surface([25,20])
         self.image.fill(RED)
 
         self.rect = self.image.get_rect()
@@ -174,7 +174,7 @@ while not done:
             duck_bullet = Duck_bullet()
             SHOT = True
             shot_count += -1
-            duck_bullet.rect.x = daffy.rect.x + 32
+            duck_bullet.rect.x = daffy.rect.x + 20
             duck_bullet.rect.y = daffy.rect.y
             all_sprites_list.add(duck_bullet)
             duck_bullet_list.add(duck_bullet)
@@ -187,7 +187,7 @@ while not done:
 
     #spawn enemies
 
-    if round(second_count, 1)% 5 == 0:
+    if round(second_count, 0)% 5 == 0:
         basic_enemy = Basic_enemy()
         basic_enemy_bullet = Basic_enemy_bullet()
 
@@ -218,7 +218,7 @@ while not done:
     #duck bullets
     for bullet in duck_bullet_list:
         enemy_hit_list = pygame.sprite.spritecollide(bullet, enemy_list, True)
-
+        bullets_hit_list = pygame.sprite.spritecollide(bullet, enemy_bullet_list, True)
 
         if bullet.rect.y < -10:
             duck_bullet_list.remove(bullet)
