@@ -36,6 +36,9 @@ duck_bullet_list = pygame.sprite.Group()
 enemy_list = pygame.sprite.Group()
 enemy_bullet_list = pygame.sprite.Group()
 
+#actual list to put enemies
+enemy_actual_list = []
+
 
 #title import
 title_text = pygame.image.load("DuckGameImages/PondDefendersTitle.png").convert()
@@ -142,12 +145,22 @@ class Basic_enemy(pygame.sprite.Sprite):
         Basic_enemy_bullet()
 
 
+def enemies_list_for_random():
+    basic_enemy = Basic_enemy()
+
+    basic_enemy.rect.x = random.randrange(1000)
+    basic_enemy.rect.y = random.randint(50,100)
+
+    all_sprites_list.add(basic_enemy)
+    enemy_list.add(basic_enemy)
+
+    enemy_actual_list.append(basic_enemy)
 
 
 
 SHOT = False
 
-
+ENEMY_SPAWN = False
 
 
 # -------- Main Program Loop -----------
@@ -187,27 +200,57 @@ while not done:
 
     #spawn enemies
 
-    if round(second_count, 0)% 5 == 0:
-        basic_enemy = Basic_enemy()
-        basic_enemy_bullet = Basic_enemy_bullet()
+    if round(second_count, 2)% 2 == 0:
+        ENEMY_SPAWN = True
 
-        basic_enemy.rect.x = random.randrange(1000)
-        basic_enemy.rect.y = random.randint(50,100)
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_f:
+            listLength = len(enemy_actual_list)
+            current_shooter = enemy_actual_list[random.randint(0, listLength)]
 
-        basic_enemy_bullet.rect.x = basic_enemy.rect.x
-        basic_enemy_bullet.rect.y = basic_enemy.rect.y
+            basic_enemy_bullet = Basic_enemy_bullet()
 
-        all_sprites_list.add(basic_enemy_bullet)
-        enemy_bullet_list.add(basic_enemy_bullet)
+            basic_enemy_bullet.rect.x = current_shooter.rect.x
+            basic_enemy_bullet.rect.y = current_shooter.rect.y
 
-        all_sprites_list.add(basic_enemy)
-        enemy_list.add(basic_enemy)
+            all_sprites_list.add(basic_enemy_bullet)
+            enemy_bullet_list.add(basic_enemy_bullet)
+
+    if ENEMY_SPAWN == True:
+        for x in range(7):
+            x += 1
+
+            basic_enemy = Basic_enemy()
+            basic_enemy_bullet = Basic_enemy_bullet()
+
+            basic_enemy.rect.x = random.randrange(1000)
+            basic_enemy.rect.y = random.randint(50,100)
+
+            basic_enemy_bullet.rect.x = basic_enemy.rect.x
+            basic_enemy_bullet.rect.y = basic_enemy.rect.y
+
+            #add them to list, not group
+            enemies_list_for_random()
+
+            all_sprites_list.add(basic_enemy_bullet)
+            enemy_bullet_list.add(basic_enemy_bullet)
+
+            all_sprites_list.add(basic_enemy)
+            enemy_list.add(basic_enemy)
+
+        ENEMY_SPAWN = False
+
+
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_f:
+            basic_enemy_bullet.rect.x = basic_enemy.rect.x
+            basic_enemy_bullet.rect.y = basic_enemy.rect.y
 
 
 
     #Enemy shooting (at duck)
 
-    if round(second_count,1)%5 == 0:
+    if round(second_count,0)%5 == 0:
         print "ENEMY!!!!"
 
     minute_count = 37-second_count
@@ -232,6 +275,7 @@ while not done:
             print(hit_count)
 
     #enemy bullets
+
     for basic_enemy_bullet in enemy_bullet_list:
         duck_hit_list = pygame.sprite.spritecollide(basic_enemy_bullet, duck_character_list, True)
 
@@ -246,7 +290,7 @@ while not done:
     print daffy.x_coord, daffy.y_coord
 
 
-    # --- Drawing code should go here
+    # --- Drawing cod   e should go here
     screen.fill(WHITE)
 
     all_sprites_list.draw(screen)
