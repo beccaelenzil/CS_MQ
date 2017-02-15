@@ -161,7 +161,11 @@ def enemies_list_for_random():
 SHOT = False
 
 ENEMY_SPAWN = False
+ENEMY_SHOOT1 = False
 
+YOU_DEAD = False
+
+number_of_enemies = 0
 
 # -------- Main Program Loop -----------
 while not done:
@@ -182,7 +186,7 @@ while not done:
 
 
 
-    if event.type == pygame.KEYDOWN and shot_count > 0:
+    if event.type == pygame.KEYDOWN and shot_count > 0 and YOU_DEAD == False:
         if event.key == pygame.K_SPACE and SHOT == False:
             duck_bullet = Duck_bullet()
             SHOT = True
@@ -199,59 +203,45 @@ while not done:
 
 
     #spawn enemies
+    if round(second_count, 1)%1 == 0 and len(enemy_actual_list) > 0:
+        ENEMY_SHOOT1 = True
 
-    if round(second_count, 2)% 2 == 0:
+    if round(second_count, 2)% 2 == 0 and number_of_enemies < 31:
         ENEMY_SPAWN = True
 
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_f:
-            listLength = len(enemy_actual_list)
-            current_shooter = enemy_actual_list[random.randint(0, listLength)]
-
+    if ENEMY_SHOOT1 == True:
+        for z in range(1):
+            z += 1
             basic_enemy_bullet = Basic_enemy_bullet()
+
+            listLength = len(enemy_actual_list)
+            current_shooter = enemy_actual_list[random.randint(0, listLength-1)]
 
             basic_enemy_bullet.rect.x = current_shooter.rect.x
             basic_enemy_bullet.rect.y = current_shooter.rect.y
 
             all_sprites_list.add(basic_enemy_bullet)
             enemy_bullet_list.add(basic_enemy_bullet)
+        ENEMY_SHOOT1 = False
+
 
     if ENEMY_SPAWN == True:
-        for x in range(7):
+        for x in range(6):
             x += 1
 
-            basic_enemy = Basic_enemy()
-            basic_enemy_bullet = Basic_enemy_bullet()
-
-            basic_enemy.rect.x = random.randrange(1000)
-            basic_enemy.rect.y = random.randint(50,100)
-
-            basic_enemy_bullet.rect.x = basic_enemy.rect.x
-            basic_enemy_bullet.rect.y = basic_enemy.rect.y
+            number_of_enemies += 1
 
             #add them to list, not group
             enemies_list_for_random()
 
-            all_sprites_list.add(basic_enemy_bullet)
-            enemy_bullet_list.add(basic_enemy_bullet)
-
-            all_sprites_list.add(basic_enemy)
-            enemy_list.add(basic_enemy)
-
         ENEMY_SPAWN = False
 
 
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_f:
-            basic_enemy_bullet.rect.x = basic_enemy.rect.x
-            basic_enemy_bullet.rect.y = basic_enemy.rect.y
 
 
 
     #Enemy shooting (at duck)
 
-    if round(second_count,0)%5 == 0:
-        print "ENEMY!!!!"
 
     minute_count = 37-second_count
 
@@ -267,10 +257,11 @@ while not done:
             duck_bullet_list.remove(bullet)
             all_sprites_list.remove(bullet)
 
-        for block in enemy_hit_list:
+        for enemy in enemy_hit_list:
             duck_bullet_list.remove(bullet)
             all_sprites_list.remove(bullet)
             hit_count += 1
+            number_of_enemies += -1
             hit_sound.play()
             print(hit_count)
 
@@ -285,10 +276,10 @@ while not done:
 
         for daffy in duck_hit_list:
             hit_sound.play()
+            YOU_DEAD = True
 
 
-    print daffy.x_coord, daffy.y_coord
-
+    print number_of_enemies
 
     # --- Drawing cod   e should go here
     screen.fill(WHITE)
@@ -314,11 +305,12 @@ while not done:
     screen.blit(shot_count_text, [830,5])
     screen.blit(hit_count_text, [20, 5])
 
+    """
     if minute_count < 30.5 and minute_count > 0:
         screen.blit(minute_count_text, [475,5])
     elif minute_count < 0:
         screen.blit(zero_text, [475,5])
-
+    """
 
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
