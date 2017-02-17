@@ -69,21 +69,21 @@ class duck(pygame.sprite.Sprite):
         self.x_speed = 0
         self.y_speed = 0
     def update(self):
-        if event.type == pygame.KEYDOWN  and -11< self.x_speed < 11:
+        if event.type == pygame.KEYDOWN  and -9< self.x_speed <9:
             # If it is an arrow key, reset vector back to zero
             if event.key == pygame.K_LEFT and self.x_coord >= 0:
-                if self.x_speed != -10:
-                    self.x_speed += -10
+                if self.x_speed != -8:
+                    self.x_speed += -8
             if event.key == pygame.K_RIGHT and self.x_coord <= 990:
-                if self.x_speed != 10:
-                    self.x_speed += 10
+                if self.x_speed != 8:
+                    self.x_speed += 8
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
-                if self.x_speed == -10:
-                    self.x_speed += 10
+                if self.x_speed == -8:
+                    self.x_speed += 8
             if event.key == pygame.K_RIGHT:
-                if self.x_speed == 10:
-                    self.x_speed += -10
+                if self.x_speed == 8:
+                    self.x_speed += -8
         if self.rect.x < 0:
             self.rect.x = 0
         if self.rect.x > 940:
@@ -165,7 +165,18 @@ ENEMY_SHOOT1 = False
 
 YOU_DEAD = False
 
+SUPPOSED_SECOND_COUNT = 5
+SUPPOSED_ENEMY_COUNT = 4
+
 number_of_enemies = 0
+
+RESTART = False
+
+
+
+
+
+
 
 # -------- Main Program Loop -----------
 while not done:
@@ -176,14 +187,15 @@ while not done:
             done = True
 
     #time methods
-    second_count = abs(initial_second_count - time.time())
-    print second_count
+    second_count = round(abs(initial_second_count - time.time()), 0)
+
+    second_count_with_decimals = round(abs(initial_second_count - time.time()), 1)
 
 
 
 
     # --- Game logic should go here
-
+    print second_count
 
 
     if event.type == pygame.KEYDOWN and shot_count > 0 and YOU_DEAD == False:
@@ -201,16 +213,18 @@ while not done:
 
 
 
-
     #spawn enemies
-    if round(second_count, 1)%1 == 0 and len(enemy_actual_list) > 0:
+    if second_count == SUPPOSED_SECOND_COUNT and len(enemy_actual_list) > 0:
         ENEMY_SHOOT1 = True
+        SUPPOSED_SECOND_COUNT += 1
 
-    if round(second_count, 2)% 2 == 0 and number_of_enemies < 31:
+
+    if second_count == SUPPOSED_ENEMY_COUNT and number_of_enemies < 31:
         ENEMY_SPAWN = True
+        SUPPOSED_ENEMY_COUNT += 2
 
     if ENEMY_SHOOT1 == True:
-        for z in range(1):
+        for z in range(0, (number_of_enemies - int(round(.30*number_of_enemies, 0)))):
             z += 1
             basic_enemy_bullet = Basic_enemy_bullet()
 
@@ -300,10 +314,11 @@ while not done:
     font2 = pygame.font.SysFont('Calibri', 40, True, False)
     shot_count_text = font.render("Shot count: " + str(shot_count),True,BLACK)
     hit_count_text = font.render("Hit count: " + str(hit_count),True,BLACK)
-    minute_count_text = font2.render(str(round((minute_count),1)),True,BLACK)
+    second_count_text = font2.render(str(round((second_count_with_decimals),1)),True,BLACK)
     zero_text = font2.render("0",True, BLACK)
     screen.blit(shot_count_text, [830,5])
     screen.blit(hit_count_text, [20, 5])
+    screen.blit(second_count_text, [475,5])
 
     """
     if minute_count < 30.5 and minute_count > 0:

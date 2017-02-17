@@ -52,23 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bulletPracticeTutorial.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScoringTheGame/bulletPracticeTutorial.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="22" column="11" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="11" />
-              <folding>
-                <element signature="e#220#233#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DuckGameWORKINGcopy.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+            <state relative-caret-position="218">
+              <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
               <folding>
                 <element signature="e#1#14#0" expanded="true" />
               </folding>
@@ -726,7 +714,7 @@
         <state relative-caret-position="420">
           <caret line="22" column="11" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="11" />
           <folding>
-            <element signature="e#220#233#0" expanded="true" />
+            <element signature="e#220#233#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -751,8 +739,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+        <state relative-caret-position="218">
+          <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
           <folding>
             <element signature="e#1#14#0" expanded="true" />
           </folding>
