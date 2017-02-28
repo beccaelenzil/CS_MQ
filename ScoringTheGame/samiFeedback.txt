@@ -1,0 +1,14 @@
+Sound Files
+the filename in pygame's pygame.mixer.music.load() function must be written as 'filename.mp3.mp3', because python expects you to add the .mp3.
+
+try this notation for mp3
+pygame.mixer.music.load('filename.mp3.mp3')
+
+
+converter apps
+windows 10
+https://www.microsoft.com/en-us/store/p/sound-audio-conversion-suite/9nblggh4qz99#
+
+Audacity
+http://www.audacityteam.org/
+
