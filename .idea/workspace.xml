@@ -23,8 +23,8 @@
       <file leaf-file-name="CamelGame.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/CamelGame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+            <state relative-caret-position="280">
+              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -40,35 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chapter13tutorial.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter13tutorial.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DuckGameWORKINGcopy.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
-              <folding>
-                <element signature="e#1#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DuckGameRoughClassCopy.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRoughClassCopy.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3320">
-              <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+            <state relative-caret-position="606">
+              <caret line="95" column="35" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
               <folding>
                 <element signature="e#1#14#0" expanded="true" />
               </folding>
@@ -79,8 +55,8 @@
       <file leaf-file-name="DuckGameRough.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2000">
-              <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
+            <state relative-caret-position="320">
+              <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -121,10 +97,10 @@
         <option value="$PROJECT_DIR$/ScoringTheGame/chapter10tutorial.py" />
         <option value="$PROJECT_DIR$/ScoringTheGame/log.txt" />
         <option value="$PROJECT_DIR$/ScoringTheGame/Tutorials/chapter11tutorial.py" />
-        <option value="$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py" />
         <option value="$PROJECT_DIR$/ScoringTheGame/chapter13tutorial.py" />
         <option value="$PROJECT_DIR$/ScoringTheGame/bulletPracticeTutorial.py" />
         <option value="$PROJECT_DIR$/ScoringTheGame/DuckGameRoughClassCopy.py" />
+        <option value="$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py" />
         <option value="$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py" />
       </list>
     </option>
@@ -160,6 +136,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -194,7 +171,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,74 +197,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CS_MQ" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="DuckGameRoughClassCopy" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ScoringTheGame" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CS_MQ" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/DuckGameRoughClassCopy.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="chapter11tutorial" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ScoringTheGame/Tutorials" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CS_MQ" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/Tutorials/chapter11tutorial.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="bulletPracticeTutorial" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ScoringTheGame" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CS_MQ" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/bulletPracticeTutorial.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="DuckGameWORKINGcopy" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ScoringTheGame" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CS_MQ" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -440,20 +348,12 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Python.DuckGameRough" />
-      <item index="1" class="java.lang.String" itemvalue="Python.DuckGameRoughClassCopy" />
-      <item index="2" class="java.lang.String" itemvalue="Python.chapter11tutorial" />
-      <item index="3" class="java.lang.String" itemvalue="Python.bulletPracticeTutorial" />
-      <item index="4" class="java.lang.String" itemvalue="Python.DuckGameWORKINGcopy" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.DuckGameWORKINGcopy" />
-        <item index="1" class="java.lang.String" itemvalue="Python.bulletPracticeTutorial" />
-        <item index="2" class="java.lang.String" itemvalue="Python.DuckGameRoughClassCopy" />
-        <item index="3" class="java.lang.String" itemvalue="Python.DuckGameRough" />
-        <item index="4" class="java.lang.String" itemvalue="Python.chapter11tutorial" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.DuckGameRough" />
       </list>
     </recent_temporary>
   </component>
@@ -659,22 +559,6 @@
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter8tutorial.py" />
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter10tutorial.py" />
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter5tutorial.py" />
-    <entry file="file://$PROJECT_DIR$/ScoringTheGame/log.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScoringTheGame/CamelGame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/Tutorials/chapter11tutorial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -691,41 +575,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter13tutorial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2000">
-          <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/bulletPracticeTutorial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="22" column="11" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="11" />
-          <folding>
-            <element signature="e#220#233#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRoughClassCopy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3320">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -737,10 +590,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRoughClassCopy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter13tutorial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScoringTheGame/log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScoringTheGame/CamelGame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+        <state relative-caret-position="606">
+          <caret line="95" column="35" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
           <folding>
             <element signature="e#1#14#0" expanded="true" />
           </folding>

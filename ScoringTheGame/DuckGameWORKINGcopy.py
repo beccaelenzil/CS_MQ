@@ -69,21 +69,22 @@ class duck(pygame.sprite.Sprite):
         self.x_speed = 0
         self.y_speed = 0
     def update(self):
-        if event.type == pygame.KEYDOWN  and -9< self.x_speed <9:
-            # If it is an arrow key, reset vector back to zero
-            if event.key == pygame.K_LEFT and self.x_coord >= 0:
-                if self.x_speed != -8:
-                    self.x_speed += -8
-            if event.key == pygame.K_RIGHT and self.x_coord <= 990:
-                if self.x_speed != 8:
-                    self.x_speed += 8
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT:
-                if self.x_speed == -8:
-                    self.x_speed += 8
-            if event.key == pygame.K_RIGHT:
-                if self.x_speed == 8:
-                    self.x_speed += -8
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN  and -9< self.x_speed <9:
+                # If it is an arrow key, reset vector back to zero
+                if event.key == pygame.K_LEFT and self.x_coord >= 0:
+                    if self.x_speed != -8:
+                        self.x_speed += -8
+                if event.key == pygame.K_RIGHT and self.x_coord <= 990:
+                    if self.x_speed != 8:
+                        self.x_speed += 8
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT:
+                    if self.x_speed == -8:
+                        self.x_speed += 8
+                if event.key == pygame.K_RIGHT:
+                    if self.x_speed == 8:
+                        self.x_speed += -8
         if self.rect.x < 0:
             self.rect.x = 0
         if self.rect.x > 940:
@@ -157,6 +158,16 @@ def enemies_list_for_random():
     enemy_actual_list.append(basic_enemy)
 
 
+def instructions():
+    print "welcome to pond defenders"
+
+def levelOne():
+    print "level 1"
+
+def main():
+    instructions()
+    levelOne()
+
 
 SHOT = False
 
@@ -170,10 +181,21 @@ SUPPOSED_ENEMY_COUNT = 4
 
 number_of_enemies = 0
 
-RESTART = False
 
 
 
+def menu():
+    START = False
+    screen.blit(title_text, [475,5])
+    pygame.display.flip()
+    while START == False:
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_0:
+                    START = True
+
+
+menu()
 
 
 
@@ -181,10 +203,6 @@ RESTART = False
 # -------- Main Program Loop -----------
 while not done:
     # --- Main event loop
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
 
     #time methods
     second_count = round(abs(initial_second_count - time.time()), 0)
@@ -197,19 +215,23 @@ while not done:
     # --- Game logic should go here
     print second_count
 
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
 
-    if event.type == pygame.KEYDOWN and shot_count > 0 and YOU_DEAD == False:
-        if event.key == pygame.K_SPACE and SHOT == False:
-            duck_bullet = Duck_bullet()
-            SHOT = True
-            shot_count += -1
-            duck_bullet.rect.x = daffy.rect.x + 20
-            duck_bullet.rect.y = daffy.rect.y
-            all_sprites_list.add(duck_bullet)
-            duck_bullet_list.add(duck_bullet)
-    elif event.type == pygame.KEYUP:
-        if event.key == pygame.K_SPACE:
-            SHOT = False
+        if event.type == pygame.KEYDOWN and shot_count > 0 and YOU_DEAD == False:
+            if event.key == pygame.K_SPACE and SHOT == False:
+                duck_bullet = Duck_bullet()
+                SHOT = True
+                shot_count += -1
+                duck_bullet.rect.x = daffy.rect.x + 20
+                duck_bullet.rect.y = daffy.rect.y
+                all_sprites_list.add(duck_bullet)
+                duck_bullet_list.add(duck_bullet)
+
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_SPACE:
+                SHOT = False
 
 
 
