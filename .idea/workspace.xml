@@ -43,8 +43,8 @@
       <file leaf-file-name="DuckGameWORKINGcopy.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="95" column="35" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
+            <state relative-caret-position="437">
+              <caret line="235" column="43" selection-start-line="235" selection-start-column="43" selection-end-line="235" selection-end-column="43" />
               <folding>
                 <element signature="e#1#14#0" expanded="true" />
               </folding>
@@ -55,7 +55,7 @@
       <file leaf-file-name="DuckGameRough.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
+            <state relative-caret-position="680">
               <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
               <folding />
             </state>
@@ -197,6 +197,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CS_MQ" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="DuckGameWORKINGcopy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ScoringTheGame" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CS_MQ" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -348,12 +365,14 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.DuckGameRough" />
+      <item index="1" class="java.lang.String" itemvalue="Python.DuckGameWORKINGcopy" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.DuckGameRough" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.DuckGameWORKINGcopy" />
+        <item index="1" class="java.lang.String" itemvalue="Python.DuckGameRough" />
       </list>
     </recent_temporary>
   </component>
@@ -622,7 +641,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
+        <state relative-caret-position="680">
           <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
           <folding />
         </state>
@@ -630,8 +649,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="95" column="35" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
+        <state relative-caret-position="437">
+          <caret line="235" column="43" selection-start-line="235" selection-start-column="43" selection-end-line="235" selection-end-column="43" />
           <folding>
             <element signature="e#1#14#0" expanded="true" />
           </folding>

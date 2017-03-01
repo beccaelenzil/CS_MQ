@@ -12,8 +12,6 @@ ORANGE = (255, 255, 0)
 
 PI = 3.141592653
 
-initial_second_count = time.time()
-
 pygame.init()
 
 size = (1000, 650)
@@ -68,23 +66,11 @@ class duck(pygame.sprite.Sprite):
         self.y_coord = 560
         self.x_speed = 0
         self.y_speed = 0
-    def update(self):
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN  and -9< self.x_speed <9:
-                # If it is an arrow key, reset vector back to zero
-                if event.key == pygame.K_LEFT and self.x_coord >= 0:
-                    if self.x_speed != -8:
-                        self.x_speed += -8
-                if event.key == pygame.K_RIGHT and self.x_coord <= 990:
-                    if self.x_speed != 8:
-                        self.x_speed += 8
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT:
-                    if self.x_speed == -8:
-                        self.x_speed += 8
-                if event.key == pygame.K_RIGHT:
-                    if self.x_speed == 8:
-                        self.x_speed += -8
+    def moveLeft(self):
+        self.rect.x += 8
+    def moveRight(self):
+        self.rect.x += -8
+        """
         if self.rect.x < 0:
             self.rect.x = 0
         if self.rect.x > 940:
@@ -94,6 +80,7 @@ class duck(pygame.sprite.Sprite):
 
         self.rect.x += self.x_speed
         self.rect.y += self.y_speed
+        """
 
 daffy = duck()
 all_sprites_list.add(daffy)
@@ -186,18 +173,19 @@ number_of_enemies = 0
 
 def menu():
     START = False
-    screen.blit(title_text, [475,5])
+    screen.fill(WHITE)
+    screen.blit(title_text, [170,100])
     pygame.display.flip()
     while START == False:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_0:
+                if event.key == pygame.K_SPACE:
                     START = True
 
 
 menu()
 
-
+initial_second_count = time.time()
 
 
 # -------- Main Program Loop -----------
@@ -208,8 +196,6 @@ while not done:
     second_count = round(abs(initial_second_count - time.time()), 0)
 
     second_count_with_decimals = round(abs(initial_second_count - time.time()), 1)
-
-
 
 
     # --- Game logic should go here
@@ -233,6 +219,23 @@ while not done:
             if event.key == pygame.K_SPACE:
                 SHOT = False
 
+    #duck movement
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            # If it is an arrow key, reset vector back to zero
+            if event.key == pygame.K_LEFT:
+                #if daffy.x_speed != -8:
+                daffy.rect.x += 8
+            if event.key == pygame.K_RIGHT:
+                #daffy.x_speed != 8:
+                daffy.rect.x += -8
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                #if daffy.x_speed == -8:
+                daffy.x_coord += 8
+            if event.key == pygame.K_RIGHT:
+                #daffy.x_speed == 8:
+                daffy.x_coord += -8
 
 
     #spawn enemies
@@ -315,18 +318,12 @@ while not done:
             YOU_DEAD = True
 
 
-    print number_of_enemies
+    print daffy.rect.x, daffy.rect.y
 
     # --- Drawing cod   e should go here
     screen.fill(WHITE)
 
     all_sprites_list.draw(screen)
-
-
-
-
-    if second_count < 5:
-        screen.blit(title_text, [170, 250])
 
     if second_count > second_count_limit:
         shot_count += 2
