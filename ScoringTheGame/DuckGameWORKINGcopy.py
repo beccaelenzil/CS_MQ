@@ -66,25 +66,13 @@ class duck(pygame.sprite.Sprite):
         self.y_coord = 560
         self.x_speed = 0
         self.y_speed = 0
-    def moveLeft(self):
-        self.rect.x += 8
-    def moveRight(self):
-        self.rect.x += -8
-        """
-        if self.rect.x < 0:
-            self.rect.x = 0
-        if self.rect.x > 940:
-            self.rect.x =940
-        if self.rect.y != 560:
-            self.rect.y = 560
 
-        self.rect.x += self.x_speed
-        self.rect.y += self.y_speed
-        """
+
 
 daffy = duck()
 all_sprites_list.add(daffy)
 duck_character_list.add(daffy)
+daffy.rect.x = 450
 
 class Duck_bullet(pygame.sprite.Sprite):
     def __init__(self):
@@ -168,7 +156,10 @@ SUPPOSED_ENEMY_COUNT = 4
 
 number_of_enemies = 0
 
-
+def restartMenu():
+    screen.fill(WHITE)
+    screen.blit(title_text, [170,100])
+    pygame.display.flip()
 
 
 def menu():
@@ -191,6 +182,17 @@ initial_second_count = time.time()
 # -------- Main Program Loop -----------
 while not done:
     # --- Main event loop
+    if YOU_DEAD == True:
+        pause_time = round(time.time(),1)
+        while YOU_DEAD == True:
+            restartMenu()
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        YOU_DEAD = False
+                        all_sprites_list.add(daffy)
+                        pause_done = round(time.time(),1)
+                        SUPPOSED_SECOND_COUNT += abs(pause_done - pause_time)
 
     #time methods
     second_count = round(abs(initial_second_count - time.time()), 0)
@@ -205,8 +207,8 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
 
-        if event.type == pygame.KEYDOWN and shot_count > 0 and YOU_DEAD == False:
-            if event.key == pygame.K_SPACE and SHOT == False:
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE and SHOT == False and shot_count > 0 and YOU_DEAD == False:
                 duck_bullet = Duck_bullet()
                 SHOT = True
                 shot_count += -1
@@ -214,28 +216,35 @@ while not done:
                 duck_bullet.rect.y = daffy.rect.y
                 all_sprites_list.add(duck_bullet)
                 duck_bullet_list.add(duck_bullet)
-
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_SPACE:
-                SHOT = False
-
-    #duck movement
-    for event in pygame.event.get():
-        if event.type == pygame.KEYDOWN:
             # If it is an arrow key, reset vector back to zero
             if event.key == pygame.K_LEFT:
                 #if daffy.x_speed != -8:
-                daffy.rect.x += 8
+                daffy.x_speed += -8
             if event.key == pygame.K_RIGHT:
                 #daffy.x_speed != 8:
-                daffy.rect.x += -8
+                daffy.x_speed += 8
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 #if daffy.x_speed == -8:
-                daffy.x_coord += 8
+                daffy.x_speed += 8
             if event.key == pygame.K_RIGHT:
                 #daffy.x_speed == 8:
-                daffy.x_coord += -8
+                daffy.x_speed += -8
+
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_SPACE:
+                SHOT = False
+
+    daffy.rect.x += daffy.x_speed
+    daffy.rect.y += daffy.y_speed
+
+    #make sure duck stays on screen
+    if daffy.rect.x < -5:
+        daffy.rect.x = -5
+    if daffy.rect.x > 940:
+        daffy.rect.x = 940
+    if daffy.rect.y != 550:
+        daffy.rect.y = 550
 
 
     #spawn enemies
@@ -316,9 +325,10 @@ while not done:
         for daffy in duck_hit_list:
             hit_sound.play()
             YOU_DEAD = True
+            all_sprites_list.remove(daffy)
 
 
-    print daffy.rect.x, daffy.rect.y
+    print daffy.x_speed
 
     # --- Drawing cod   e should go here
     screen.fill(WHITE)
@@ -339,12 +349,6 @@ while not done:
     screen.blit(hit_count_text, [20, 5])
     screen.blit(second_count_text, [475,5])
 
-    """
-    if minute_count < 30.5 and minute_count > 0:
-        screen.blit(minute_count_text, [475,5])
-    elif minute_count < 0:
-        screen.blit(zero_text, [475,5])
-    """
 
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
