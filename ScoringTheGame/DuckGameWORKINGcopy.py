@@ -57,6 +57,14 @@ hit_sound = pygame.mixer.Sound("DuckGameSoundEffects/laser5.ogg")
 #death screm
 death_scream = pygame.mixer.Sound("DuckGameSoundEffects/starwarsscrem.ogg")
 
+#duck quack
+duck_quack = pygame.mixer.Sound("DuckGameSoundEffects/Quack2.ogg")
+
+#song track
+song_track = pygame.mixer.Sound("DuckGameSoundEffects/ThemeSong.ogg")
+
+song_track.set_volume(.1)
+
 class duck(pygame.sprite.Sprite):
     def __init__(self):
         super(duck, self).__init__()
@@ -161,6 +169,7 @@ def restartMenu():
     screen.blit(title_text, [170,100])
     pygame.display.flip()
 
+song_track.play()
 
 def menu():
     START = False
@@ -181,23 +190,27 @@ initial_second_count = time.time()
 
 # -------- Main Program Loop -----------
 while not done:
+
+        #time methods
+    second_count = round(abs(initial_second_count - time.time()), 0)
+
+    second_count_with_decimals = round(abs(initial_second_count - time.time()), 1)
+
     # --- Main event loop
     if YOU_DEAD == True:
-        pause_time = round(time.time(),1)
+        pause_start = round(time.time(),1)
         while YOU_DEAD == True:
             restartMenu()
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        YOU_DEAD = False
                         all_sprites_list.add(daffy)
                         pause_done = round(time.time(),1)
-                        SUPPOSED_SECOND_COUNT += abs(pause_done - pause_time)
+                        SUPPOSED_SECOND_COUNT = second_count + 3
+                        hit_count = 0
+                        YOU_DEAD = False
+                        duck_character_list.add(daffy)
 
-    #time methods
-    second_count = round(abs(initial_second_count - time.time()), 0)
-
-    second_count_with_decimals = round(abs(initial_second_count - time.time()), 1)
 
 
     # --- Game logic should go here
@@ -216,6 +229,7 @@ while not done:
                 duck_bullet.rect.y = daffy.rect.y
                 all_sprites_list.add(duck_bullet)
                 duck_bullet_list.add(duck_bullet)
+                duck_quack.play()
             # If it is an arrow key, reset vector back to zero
             if event.key == pygame.K_LEFT:
                 #if daffy.x_speed != -8:
@@ -336,7 +350,7 @@ while not done:
     all_sprites_list.draw(screen)
 
     if second_count > second_count_limit:
-        shot_count += 2
+        shot_count += 3
         second_count_limit += 1
 
     font = pygame.font.SysFont('Calibri', 25, True, False)
