@@ -65,6 +65,9 @@ song_track = pygame.mixer.Sound("DuckGameSoundEffects/ThemeSong.ogg")
 
 song_track.set_volume(.1)
 
+#High quack
+high_quack = pygame.mixer.Sound("DuckGameSoundEffects/ThemeSong.ogg")
+
 class duck(pygame.sprite.Sprite):
     def __init__(self):
         super(duck, self).__init__()
@@ -187,6 +190,7 @@ menu()
 
 initial_second_count = time.time()
 
+duck_spawn = 0
 
 # -------- Main Program Loop -----------
 while not done:
@@ -196,9 +200,10 @@ while not done:
 
     second_count_with_decimals = round(abs(initial_second_count - time.time()), 1)
 
+
     # --- Main event loop
     if YOU_DEAD == True:
-        pause_start = round(time.time(),1)
+        secondCountReset = second_count
         while YOU_DEAD == True:
             restartMenu()
             for event in pygame.event.get():
@@ -206,15 +211,23 @@ while not done:
                     if event.key == pygame.K_SPACE:
                         all_sprites_list.add(daffy)
                         pause_done = round(time.time(),1)
-                        SUPPOSED_SECOND_COUNT = second_count + 3
+                        second_count = secondCountReset
                         hit_count = 0
+                        daffy.x_speed = 0
                         YOU_DEAD = False
-                        duck_character_list.add(daffy)
+                        duck_spawn = second_count + 3
 
 
+    if duck_spawn == second_count:
+        duck_character_list.add(daffy)
 
     # --- Game logic should go here
+    if SUPPOSED_SECOND_COUNT < second_count:
+        SUPPOSED_SECOND_COUNT = second_count +2
+
+
     print second_count
+    print SUPPOSED_SECOND_COUNT
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
