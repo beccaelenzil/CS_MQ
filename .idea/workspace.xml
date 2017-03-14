@@ -40,14 +40,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DuckGameWORKINGcopy.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DuckGameWORKINGcopy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="215" column="41" selection-start-line="215" selection-start-column="41" selection-end-line="215" selection-end-column="41" />
+            <state relative-caret-position="20">
+              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
               <folding>
                 <element signature="e#1#14#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonClass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AdvancedCS/PersonClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1_1_Dates.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AdvancedCS/1_1_Dates.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,6 +122,8 @@
         <option value="$PROJECT_DIR$/ScoringTheGame/DuckGameRoughClassCopy.py" />
         <option value="$PROJECT_DIR$/ScoringTheGame/DuckGameRough.py" />
         <option value="$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py" />
+        <option value="$PROJECT_DIR$/AdvancedCS/PersonClass.py" />
+        <option value="$PROJECT_DIR$/AdvancedCS/1_1_Dates.py" />
       </list>
     </option>
   </component>
@@ -136,7 +158,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -154,10 +175,6 @@
               <option name="myItemId" value="CS_MQ" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ScoringTheGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -168,14 +185,19 @@
               <option name="myItemId" value="CS_MQ" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdvancedCS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -183,7 +205,7 @@
       <recent name="C:\Users\Matt\Documents\GitHub\CS_MQ\ScoringTheGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.DuckGameWORKINGcopy">
+  <component name="RunManager" selected="Python.1_1_Dates">
     <configuration default="false" name="DuckGameRough" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -214,6 +236,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CS_MQ" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="1_1_Dates" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AdvancedCS" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CS_MQ" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AdvancedCS/1_1_Dates.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -365,14 +404,16 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.DuckGameRough" />
       <item index="1" class="java.lang.String" itemvalue="Python.DuckGameWORKINGcopy" />
+      <item index="2" class="java.lang.String" itemvalue="Python.1_1_Dates" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.DuckGameWORKINGcopy" />
-        <item index="1" class="java.lang.String" itemvalue="Python.DuckGameRough" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.1_1_Dates" />
+        <item index="1" class="java.lang.String" itemvalue="Python.DuckGameWORKINGcopy" />
+        <item index="2" class="java.lang.String" itemvalue="Python.DuckGameRough" />
       </list>
     </recent_temporary>
   </component>
@@ -418,8 +459,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter11tutorial.py" />
-    <entry file="file://$PROJECT_DIR$/ScoringTheGame/chapter8tutorial.py" />
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/log.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -648,11 +687,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ScoringTheGame/DuckGameWORKINGcopy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="215" column="41" selection-start-line="215" selection-start-column="41" selection-end-line="215" selection-end-column="41" />
+        <state relative-caret-position="20">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding>
             <element signature="e#1#14#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdvancedCS/PersonClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AdvancedCS/1_1_Dates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
