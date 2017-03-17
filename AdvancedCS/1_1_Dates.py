@@ -76,8 +76,124 @@ class Date:
             self.day =1
         return self
 
+    def yesterday(self):
+        if self.isLeapYear() == True:
+            feb = 29
+        else:
+            feb = 28
 
-# create an object named d with the constructor
+        DIM = [0,31,feb,31,30,31,30,31,31,30,31,30,31]
+
+        if self.day > 1:
+            self.day += -1
+        elif self.day == 1 and self.month > 1:
+            self.month += -1
+            self.day = DIM[self.month]
+        elif self.day == 1 and self.month == 1:
+            self.year += -1
+            self.month = 12
+            self.day = 31
+        return self
+
+    def addNDays(self, N):
+        if self.isLeapYear() == True:
+            feb = 29
+        else:
+            feb = 28
+
+        DIM = [0,31,feb,31,30,31,30,31,31,30,31,30,31]
+
+        while N > 0:
+            if self.day != DIM[self.month]:
+                self.day += 1
+                N += -1
+            elif self.day == DIM[self.month] and self.month < 12:
+                self.month += 1
+                self.day = 1
+                N += -1
+            elif self.day == DIM[self.month] and self.month == 12:
+                self.month = 1
+                self.day = 1
+                self.year += 1
+                N += -1
+        return self
+
+    def subNDays(self, N):
+        if self.isLeapYear() == True:
+            feb = 29
+        else:
+            feb = 28
+
+        DIM = [0,31,feb,31,30,31,30,31,31,30,31,30,31]
+
+        while N > 0:
+            if self.day != 1:
+                self.day += -1
+                N += -1
+            elif self.day == 1 and self.month > 1:
+                self.month += -1
+                self.day = DIM[self.month]
+                N += -1
+            elif self.day == 1 and self.month == 1:
+                self.month = 12
+                self.day = DIM[self.month]
+                self.year += -1
+                N += -1
+        return self
+
+    def isBefore(self, d9):
+        if self.year < d9.year:
+            return True
+        elif self.year > d9.year:
+            return False
+        elif self.year == d9.year:
+            if self.month < d9.month:
+                return True
+            elif self.month > d9.month:
+                return False
+            elif self.month == d9.month:
+                if self.day < d9.day:
+                    return True
+                elif self.day > d9.day:
+                    return False
+                elif self.day == d9.day:
+                    return False
+
+    def isAfter(self, d9):
+        if self.year < d9.year:
+            return False
+        elif self.year > d9.year:
+            return True
+        elif self.year == d9.year:
+            if self.month < d9.month:
+                return False
+            elif self.month > d9.month:
+                return True
+            elif self.month == d9.month:
+                if self.day < d9.day:
+                    return False
+                elif self.day > d9.day:
+                    return True
+                elif self.day == d9.day:
+                    return True
+
+    def diff(self, d10):
+        date = self
+        otherDate = d10
+        difference = 0
+        if date.equals(otherDate) == True:
+            return 0
+        while date.equals(otherDate) == False:
+            if date.isBefore(d10) == True:
+                date.tomorrow()
+                difference += 1
+            elif date.isAfter(otherDate) == True:
+                date.yesterday()
+                difference+= -1
+        return difference
+
+#create an object named d with the constructor
+
 d = Date(11, 12, 2014)  # use day 11 if you prefer
 
 # show d's value
@@ -128,7 +244,7 @@ d == d2
 #True        # so this should be True
 
 
-d = Date(12, 17, 2015)
+d = Date(12, 1, 2015)
 d2 = d.copy()
 print d
 #01/01/2015
@@ -145,3 +261,31 @@ print " "
 
 print d.tomorrow()
 
+d1 = Date(01, 1, 2015)
+
+print " "
+print d1.yesterday()
+
+d2 = Date(01, 1, 2015)
+
+print " "
+print d2.addNDays(560)
+
+
+print " "
+print d3.subNDays(5)
+
+d9 = Date(06, 15, 2015)
+d3 = Date(12, 1, 2015)
+
+print " "
+print d3.isBefore(d9)
+
+d5 = Date(12, 1, 2015)
+d10 = Date(3, 15, 2016)
+
+print " "
+print d5.diff(d10)
+
+print d5
+print d10
