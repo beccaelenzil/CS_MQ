@@ -80,48 +80,64 @@ class Board:
             else: nextCh = 'X'
 
     def allowsMove(self, col):
-        try_row = self.height -1
-        out_of_range = False
+        if col >= self.width or col <0:
+            return False
+        elif self.data[0][col] != ' ':
+            return True
+        else:
+            return False
+
+
+    def isFull(self):
+        full = True
+        for col in range(self.width):
+            for row in range(self.height):
+                if self.data[col][row] == ' ':
+                    full = False
+
+        return full
+
+    def delMove(self, col):
+        try_row = 0
         movePosition = self.data[try_row][col]
-        done = False
 
-        if col > -1 and col < self.width:
+        while movePosition == ' ':
+            try_row += 1
             movePosition = self.data[try_row][col]
+        if movePosition != ' ':
+            self.data[try_row][col] = ' '
+
+    def winsFor(self, ox):
+        H = self.height
+        W = self.width
+        D = self.data
+        # check for horizontal wins
+        for row in range(0,H):
+            for col in range(0,W-3):
+                if D[row][col] == ox and \
+                   D[row][col+1] == ox and \
+                   D[row][col+2] == ox and \
+                   D[row][col+3] == ox:
+                    return True
+                elif D[row][col] == ox and \
+                   D[row+1][col] == ox and \
+                   D[row+2][col] == ox and \
+                   D[row+3][col] == ox:
+                    return True
 
 
-        """
-        this function will start with a while loop to check if the move stacking will work,
-        or be out of range. I use out_of_range variable to make sure that the while loop does
-        not run forever. the following if elif statements check if the column input is out of the
-        domain of the defined board.
-        """
-
-        if col < 0:
-            print False
-            done = True
-
-        elif col > self.width:
-            print False
-            done = True
-
-        while movePosition != ' ' and out_of_range == False and done == False:
-            if try_row > -1:
-                try_row += -1
-                movePosition = self.data[try_row][col]
-            elif try_row < 0:
-                print False
-                out_of_range = True
-
-        if movePosition == ' ' and done == False:
-            print True
 
 
-    #def isFull(self):
 
 
-boardy = Board(2,2)
 
-#print boardy
+boardy = Board(6,7)
+boardy.setBoard('00102030')
+print boardy
+
+print boardy.winsFor('X')
+
+
 
 """
 boardy.addMove(3, 'X')
@@ -133,18 +149,21 @@ boardy.addMove(3, 'X')
 boardy.addMove(3, 'O')
 """
 
-boardy.addMove(0, 'X')
-
-boardy.addMove(0, 'O')
 
 
 
-print boardy
 
-boardy.allowsMove(-1)
 
-boardy.allowsMove(0)
+"""
+print boardy.allowsMove(-1)
 
-boardy.allowsMove(1)
+print boardy.allowsMove(0)
 
-boardy.allowsMove(2)
+print boardy.allowsMove(1)
+
+print boardy.allowsMove(2)
+
+print " "
+print boardy.isFull()
+"""
+
