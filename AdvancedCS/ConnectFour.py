@@ -49,7 +49,7 @@ class Board:
     def addMove(self, col, ox):
         counter = 0
         PC = ox
-        try_row = 5
+        try_row = self.height -1
         movePosition = self.data[try_row][col]
 
         while movePosition != ' ':
@@ -57,7 +57,6 @@ class Board:
             movePosition = self.data[try_row][col]
         if movePosition == ' ':
             self.data[try_row][col] = PC
-
 
 
     def setBoard( self, moveString ):
@@ -80,12 +79,51 @@ class Board:
             if nextCh == 'X': nextCh = 'O'
             else: nextCh = 'X'
 
+    def allowsMove(self, col):
+        try_row = self.height -1
+        out_of_range = False
+        movePosition = self.data[try_row][col]
+        done = False
+
+        if col > -1 and col < self.width:
+            movePosition = self.data[try_row][col]
 
 
-boardy = Board(7,6)
+        """
+        this function will start with a while loop to check if the move stacking will work,
+        or be out of range. I use out_of_range variable to make sure that the while loop does
+        not run forever. the following if elif statements check if the column input is out of the
+        domain of the defined board.
+        """
+
+        if col < 0:
+            print False
+            done = True
+
+        elif col > self.width:
+            print False
+            done = True
+
+        while movePosition != ' ' and out_of_range == False and done == False:
+            if try_row > -1:
+                try_row += -1
+                movePosition = self.data[try_row][col]
+            elif try_row < 0:
+                print False
+                out_of_range = True
+
+        if movePosition == ' ' and done == False:
+            print True
+
+
+    #def isFull(self):
+
+
+boardy = Board(2,2)
 
 #print boardy
 
+"""
 boardy.addMove(3, 'X')
 
 boardy.addMove(4, 'O')
@@ -93,6 +131,20 @@ boardy.addMove(4, 'O')
 boardy.addMove(3, 'X')
 
 boardy.addMove(3, 'O')
+"""
+
+boardy.addMove(0, 'X')
+
+boardy.addMove(0, 'O')
+
 
 
 print boardy
+
+boardy.allowsMove(-1)
+
+boardy.allowsMove(0)
+
+boardy.allowsMove(1)
+
+boardy.allowsMove(2)
