@@ -46,6 +46,7 @@ class Board:
 
         return s       # the board is complete, return it
 
+    #adds move to lowest free space in a column
     def addMove(self, col, ox):
         counter = 0
         PC = ox
@@ -58,7 +59,7 @@ class Board:
         if movePosition == ' ':
             self.data[try_row][col] = PC
 
-
+    #sets board given specific string
     def setBoard( self, moveString ):
         """ takes in a string of columns and places
             alternating checkers in those columns,
@@ -79,24 +80,26 @@ class Board:
             if nextCh == 'X': nextCh = 'O'
             else: nextCh = 'X'
 
+    #checks if the move is within domain, and if there are already pieces
     def allowsMove(self, col):
         if col >= self.width or col <0:
             return False
         elif self.data[0][col] != ' ':
-            return True
-        else:
             return False
+        else:
+            return True
 
-
+    #checks if the board is full, default is True
     def isFull(self):
         full = True
         for col in range(self.width):
             for row in range(self.height):
-                if self.data[col][row] == ' ':
+                if self.data[row][col] == ' ':
                     full = False
 
         return full
 
+    #deletes the highest move in a column
     def delMove(self, col):
         try_row = 0
         movePosition = self.data[try_row][col]
@@ -111,6 +114,7 @@ class Board:
         H = self.height
         W = self.width
         D = self.data
+        win = False
         # check for horizontal wins
         for row in range(0,H):
             for col in range(0,W-3):
@@ -118,52 +122,78 @@ class Board:
                    D[row][col+1] == ox and \
                    D[row][col+2] == ox and \
                    D[row][col+3] == ox:
-                    return True
-                elif D[row][col] == ox and \
+                    win = True
+        #check for vertical wins
+        for col in range(0, W):
+            for row in range(0, H-3):
+                if D[row][col] == ox and \
                    D[row+1][col] == ox and \
                    D[row+2][col] == ox and \
                    D[row+3][col] == ox:
-                    return True
+                    win = True
+        #check for diagonal wins down
+        for row in range(0, H-3):
+            for col in range(0, W-3):
+                if D[row][col] == ox and \
+                   D[row+1][col+1] == ox and \
+                   D[row+2][col+2] == ox and \
+                   D[row+3][col+3] == ox:
+                    win = True
+        #check for diagonal wins up
+        for row in range(3, H):
+            for col in range(0, W-3):
+                if D[row][col] == ox and \
+                   D[row-1][col+1] == ox and \
+                   D[row-2][col+2] == ox and \
+                   D[row-3][col+3] == ox:
+                    win = True
+
+        return win
+
+    def hostGame(self):
+        gameOver = False
+
+        print "Hello and welcome to connect 4, oldies edition"
+
+        while gameOver == False:
+
+            players = ['X', 'O']
+
+            """
+            sets up a while loop containing two player options, alternates between players. Takes an
+            input and checks using allow move if move works. if move does not work, input is prompted.
+            Then adds move after while loop. If statements check for win, full, and then last if
+            statement ends method.
+            """
+
+            for i in players:
+                print self.__repr__()
+                print ' '
+
+                moveChoice = -1
+
+                moveChoice = input('What column would ' + i + ' like to choose? ')
+
+                while self.allowsMove(moveChoice) == False:
+                    print
+                    moveChoice = input('That is not a valid choice, ' + i + ' what is your choice? ')
+
+                self.addMove(moveChoice, i)
+
+                if self.winsFor(i) == True:
+                    print self.__repr__()
+                    print ' '
+                    print i + ' wins!'
+                    gameOver = True
+                if self.isFull() == True:
+                    print ' '
+                    print 'The board is full, please restart'
+                    gameOver = True
+                if gameOver == True:
+                    break
 
 
 
 
-
-
-
-boardy = Board(6,7)
-boardy.setBoard('00102030')
-print boardy
-
-print boardy.winsFor('X')
-
-
-
-"""
-boardy.addMove(3, 'X')
-
-boardy.addMove(4, 'O')
-
-boardy.addMove(3, 'X')
-
-boardy.addMove(3, 'O')
-"""
-
-
-
-
-
-
-"""
-print boardy.allowsMove(-1)
-
-print boardy.allowsMove(0)
-
-print boardy.allowsMove(1)
-
-print boardy.allowsMove(2)
-
-print " "
-print boardy.isFull()
-"""
-
+boardy = Board(7,6)
+boardy.hostGame()
