@@ -195,5 +195,5 @@ class Board:
 
 
 
-boardy = Board(7,6)
-boardy.hostGame()
+#b= Board(7,6)
+#b.hostGame()
