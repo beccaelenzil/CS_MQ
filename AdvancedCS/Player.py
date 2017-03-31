@@ -23,7 +23,6 @@ class Player():
         else:
             return 'X'
 
-
     def scoreBoard(self, b):
         score = 0.0
         if b.winsFor(self.ox, ):
@@ -32,7 +31,6 @@ class Player():
             score = 0.0
         else:
             score = 50.0
-
         return score
 
     def tiebreakMove(self, scores):

@@ -1,4 +1,10 @@
 #CONNECT FOUR GAME
+# File: Board.py
+# Verions: Python 2.7.13
+# Name: Matt Querdasi
+# Date: 3/21/17
+# Desc: PROG DESC
+# Usage: Board class for connect four game
 
 class Board:
     """ a datatype representing a C4 board
