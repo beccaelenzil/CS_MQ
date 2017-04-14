@@ -55,8 +55,8 @@
       <file leaf-file-name="Board.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AdvancedCS/Board.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3060">
-              <caret line="153" column="41" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
+            <state relative-caret-position="120">
+              <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -77,8 +77,8 @@
       <file leaf-file-name="Sort.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AdvancedCS/Sort.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state relative-caret-position="284">
+              <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -222,7 +222,7 @@
       <recent name="C:\Users\Matt\Documents\GitHub\CS_MQ\ScoringTheGame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.MergeSort">
+  <component name="RunManager" selected="Python.Sort">
     <configuration default="false" name="ConnectFour" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -236,23 +236,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CS_MQ" />
       <option name="SCRIPT_NAME" value="C:\Users\Matt\Documents\GitHub\CS_MQ\AdvancedCS\Board.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="SegregationModel" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/IntroCS" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CS_MQ" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/IntroCS/SegregationModel.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -304,6 +287,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CS_MQ" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AdvancedCS/MergeSort.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Sort" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AdvancedCS" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CS_MQ" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AdvancedCS/Sort.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -457,18 +457,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.ConnectFour" />
-      <item index="1" class="java.lang.String" itemvalue="Python.SegregationModel" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Player" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Board" />
-      <item index="4" class="java.lang.String" itemvalue="Python.MergeSort" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Player" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Board" />
+      <item index="3" class="java.lang.String" itemvalue="Python.MergeSort" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Sort" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.MergeSort" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Player" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Board" />
-        <item index="3" class="java.lang.String" itemvalue="Python.ConnectFour" />
-        <item index="4" class="java.lang.String" itemvalue="Python.SegregationModel" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Sort" />
+        <item index="1" class="java.lang.String" itemvalue="Python.MergeSort" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Player" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Board" />
+        <item index="4" class="java.lang.String" itemvalue="Python.ConnectFour" />
       </list>
     </recent_temporary>
   </component>
@@ -655,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -663,7 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -766,14 +764,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AdvancedCS/Board.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3060">
-          <caret line="153" column="41" selection-start-line="153" selection-start-column="41" selection-end-line="153" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/AdvancedCS/MergeSort.py" />
     <entry file="file://$PROJECT_DIR$/AdvancedCS/Player.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -784,18 +775,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AdvancedCS/MergeSort.py">
+    <entry file="file://$PROJECT_DIR$/AdvancedCS/Board.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AdvancedCS/Sort.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="284">
+          <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
           <folding />
         </state>
       </provider>
