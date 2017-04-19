@@ -48,39 +48,66 @@ print(alist)
 """
 
 def quickSort(some_list, start, stop):
+    print my_list
+
     if stop - start < 1:
         return some_list
 
     else:
         pivot = some_list[start]
+        left = start
+        right = stop
 
-        while start <= stop:
-            while some_list[start] < pivot:
-                start += 1
-            while some_list[stop] > pivot:
-                stop -= 1
+        while left <= right:
+            while some_list[left] < pivot:
+                left += 1
+            while some_list[right] > pivot:
+                right -= 1
 
-            if start <= stop:
-                some_list[start], some_list[stop] = some_list[stop], some_list[start]
-                start += 1
-                stop -= 1
+            if left <= right:
+                some_list[left], some_list[right] = some_list[right], some_list[left]
+                left += 1
+                right -= 1
 
         print some_list
 
-        #nsecond half of list
-        #quickSort(some_list, start, stop)
-        quickSort(some_list, start, stop)
+        quickSort(some_list, start, right)
+        quickSort(some_list, left, stop)
+
+        return some_list
+
+
 
 my_list = [39, 30, 45, 33, 20, 61, 36, 5, 31, 64]
-quickSort(my_list, 0, len(my_list) - 1)
+
+my_list_sorted = quickSort(my_list, 0, len(my_list) - 1)
+
+
+
 
 
 def my_selection_sort(some_list):
+    print some_list
+
     for i in range(len(some_list)):
         smallest_value = i
+        print some_list[smallest_value]
 
         for j in range(i+1,len(some_list)):
             if some_list[j] < some_list[smallest_value]:
-                smallest_value = j
-            #find where to start/end
-            #iterable
+                new_smallest_value = some_list[j]
+                switch_value = some_list[smallest_value]
+
+
+                print "BOOM"
+                j += 1
+            else:
+                j += 1
+
+        print some_list
+        i += 1
+
+    return some_list
+
+test_list = [4,3,6,2]
+test_list_sorted = my_selection_sort(test_list)
