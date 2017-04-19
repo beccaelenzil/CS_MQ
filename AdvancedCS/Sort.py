@@ -67,8 +67,20 @@ def quickSort(some_list, start, stop):
 
         print some_list
 
-        quickSort(some_list, start, stop)
+        #nsecond half of list
+        #quickSort(some_list, start, stop)
         quickSort(some_list, start, stop)
 
 my_list = [39, 30, 45, 33, 20, 61, 36, 5, 31, 64]
 quickSort(my_list, 0, len(my_list) - 1)
+
+
+def my_selection_sort(some_list):
+    for i in range(len(some_list)):
+        smallest_value = i
+
+        for j in range(i+1,len(some_list)):
+            if some_list[j] < some_list[smallest_value]:
+                smallest_value = j
+            #find where to start/end
+            #iterable
