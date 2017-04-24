@@ -95,11 +95,14 @@ def my_selection_sort(some_list):
 
         for j in range(i+1,len(some_list)):
             if some_list[j] < some_list[smallest_value]:
+                #store values as new varibles
                 new_smallest_value = some_list[j]
                 switch_value = some_list[smallest_value]
 
+                #transfer/switch values with new variables
+                some_list[j] = switch_value
+                some_list[smallest_value] = new_smallest_value
 
-                print "BOOM"
                 j += 1
             else:
                 j += 1
@@ -109,5 +112,26 @@ def my_selection_sort(some_list):
 
     return some_list
 
-test_list = [4,3,6,2]
+test_list = [11, 4, 76, 3, 730, 6, 10, 46, 99, 2]
 test_list_sorted = my_selection_sort(test_list)
+
+
+def my_insertion_sort(some_list):
+    print some_list
+    for i in range(1, len(some_list)):
+        while i > 0 and some_list[i] < some_list[i-1]:
+            some_list[i], some_list[i-1] = some_list[i-1], some_list[i]
+            i-=1
+            print some_list
+    return some_list
+
+
+def shellSort(some_list, gap):
+    list1 = []
+    for j in range(gap):
+        for i in range(j, len(some_list), gap):
+            list1.append(j)
+        my_insertion_sort(some_list)
+    list2 = []
+
+
