@@ -127,11 +127,24 @@ def my_insertion_sort(some_list):
 
 
 def shellSort(some_list, gap):
-    list1 = []
+    #condenses the numbers closer to where they belong
     for j in range(gap):
+        gap_list = []
         for i in range(j, len(some_list), gap):
-            list1.append(j)
-        my_insertion_sort(some_list)
-    list2 = []
+            gap_list.append(some_list[i])
+        print gap_list
+        gapList = my_insertion_sort(gap_list)
+        print gap_list
+        z = 0
+        for i in range(j, len(some_list), gap):
+            some_list[i] = gapList[z]
+            z+=1
+        print some_list
 
+    return my_insertion_sort(some_list)
+
+def bubbleSort(some_list):
+    switch = True
+    while switch == True:
+        switch = False
 

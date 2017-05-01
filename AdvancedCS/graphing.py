@@ -6,5 +6,3 @@ x = [i for i in range(len(y))]
 plt.plot(x,y)
 plt.show(block=True)
 
-
-
