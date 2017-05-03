@@ -141,6 +141,7 @@ def shellSort(some_list, gap):
             z+=1
         print some_list
 
+
     return my_insertion_sort(some_list)
 
 def bubbleSort(some_list):
